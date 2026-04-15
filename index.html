@@ -1,646 +1,650 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2685.2">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Campus Gig Board</title>
+    
+    <!-- Tailwind CSS for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- React & ReactDOM libraries -->
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
+    
+    <!-- Babel to compile JSX in the browser -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <style>
+        /* Hide scrollbar for mobile app feel */
+        .scrollbar-hide::-webkit-scrollbar { display: none; }
+        .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+        .pb-safe { padding-bottom: env(safe-area-inset-bottom, 16px); }
+        body { -webkit-tap-highlight-color: transparent; }
+    </style>
 </head>
-<body>
-<p class="p1">&lt;!DOCTYPE html&gt;</p>
-<p class="p1">&lt;html lang="bn"&gt;</p>
-<p class="p1">&lt;head&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta charset="UTF-8"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;title&gt;সনাতন বিদ্যার্থী পরিষদ | ড্যাফোডিল ইন্টারন্যাশনাল ইউনিভার্সিটি&lt;/title&gt;</p>
-<p class="p2"><span class="Apple-converted-space">    </span></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- Google Fonts for Bengali --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"&gt;</p>
-<p class="p2"><span class="Apple-converted-space">    </span></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- Tailwind CSS --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;script src="https://cdn.tailwindcss.com"&gt;&lt;/script&gt;</p>
-<p class="p2"><span class="Apple-converted-space">    </span></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- Font Awesome --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;script&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>tailwind.config = {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>theme: {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>extend: {</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>colors: {</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>saffron: {</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>50: '#fff7ed',</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>100: '#ffedd5',</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>500: '#f97316',</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>600: '#ea580c',</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>700: '#c2410c',</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>900: '#7c2d12',</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>},</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>fontFamily: {</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>bengali: ['"Hind Siliguri"', 'sans-serif'],</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">                </span>}</p>
-<p class="p1"><span class="Apple-converted-space">            </span>}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/script&gt;</p>
-<p class="p2"><span class="Apple-converted-space">    </span></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;style&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>body {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-family: 'Hind Siliguri', sans-serif;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.text-shadow {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>text-shadow: 2px 2px 4px rgba(0,0,0,0.6);</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>html {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>scroll-behavior: smooth;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>/* Modal Styles */</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.modal {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>transition: opacity 0.25s ease;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>body.modal-active {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>overflow-x: hidden;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>overflow-y: hidden !important;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/style&gt;</p>
-<p class="p1">&lt;/head&gt;</p>
-<p class="p1">&lt;body class="bg-saffron-50 text-gray-800"&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- Navbar --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;nav class="bg-white shadow-md fixed w-full z-50 transition-all duration-300" id="navbar"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="flex justify-between h-20"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="flex items-center"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;a href="#" class="flex items-center space-x-3"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="h-12 w-12 flex items-center justify-center bg-saffron-100 rounded-full overflow-hidden border-2 border-saffron-500"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                             </span>&lt;img src="loho png.PNG" alt="Logo" class="h-full w-full object-cover" onerror="this.style.display='none'; document.getElementById('fallback-icon').style.display='block';"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                             </span>&lt;i id="fallback-icon" class="fas fa-om text-saffron-600 text-2xl hidden"&gt;&lt;/i&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="flex flex-col"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;span class="font-bold text-xl md:text-2xl text-saffron-700 tracking-wide leading-none"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                </span>SVP &lt;span class="text-gray-600"&gt;DIU&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;span class="text-xs text-gray-500 font-medium"&gt;Sanatan Vidyarthi Parishad&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/a&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p2"><span class="Apple-converted-space">                </span></p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="hidden md:flex items-center space-x-8"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;a href="#home" class="text-gray-700 hover:text-saffron-600 font-medium transition duration-300"&gt;হোম&lt;/a&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;a href="#about" class="text-gray-700 hover:text-saffron-600 font-medium transition duration-300"&gt;আমাদের সম্পর্কে&lt;/a&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;a href="#committee" class="text-gray-700 hover:text-saffron-600 font-medium transition duration-300"&gt;কমিটি&lt;/a&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;a href="#events" class="text-gray-700 hover:text-saffron-600 font-medium transition duration-300"&gt;ইভেন্ট&lt;/a&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;a href="#gallery" class="text-gray-700 hover:text-saffron-600 font-medium transition duration-300"&gt;গ্যালারি&lt;/a&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;a href="#donation" class="text-gray-700 hover:text-saffron-600 font-medium transition duration-300"&gt;দান করুন&lt;/a&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;a href="#contact" class="px-5 py-2 bg-saffron-600 text-white rounded-full font-medium hover:bg-saffron-700 transition duration-300 shadow-lg transform hover:-translate-y-0.5"&gt;যোগাযোগ&lt;/a&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="md:hidden flex items-center"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;button id="mobile-menu-btn" class="text-gray-700 hover:text-saffron-600 focus:outline-none"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;i class="fas fa-bars text-2xl"&gt;&lt;/i&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 shadow-lg"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;a href="#home" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-saffron-600 hover:bg-saffron-50"&gt;হোম&lt;/a&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;a href="#about" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-saffron-600 hover:bg-saffron-50"&gt;আমাদের সম্পর্কে&lt;/a&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;a href="#committee" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-saffron-600 hover:bg-saffron-50"&gt;কমিটি&lt;/a&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;a href="#events" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-saffron-600 hover:bg-saffron-50"&gt;ইভেন্ট&lt;/a&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;a href="#gallery" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-saffron-600 hover:bg-saffron-50"&gt;গ্যালারি&lt;/a&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;a href="#donation" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-saffron-600 hover:bg-saffron-50"&gt;দান করুন&lt;/a&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;a href="#contact" class="block px-3 py-2 rounded-md text-base font-medium text-saffron-600 font-bold hover:bg-saffron-50"&gt;যোগাযোগ করুন&lt;/a&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/nav&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- Hero Section --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;section id="home" class="relative h-screen flex items-center justify-center overflow-hidden"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="absolute inset-0 z-0"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;img src="https://images.unsplash.com/photo-1605658661601-5290b23023fb?q=80&amp;w=2070&amp;auto=format&amp;fit=crop" alt="Background" class="w-full h-full object-cover"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="absolute inset-0 bg-gradient-to-b from-black/70 to-black/40"&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="relative z-10 text-center px-4 max-w-4xl mx-auto mt-16"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="mb-4 inline-block animate-bounce"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;i class="fas fa-om text-5xl text-saffron-500"&gt;&lt;/i&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;h1 class="text-4xl md:text-6xl font-bold text-white mb-4 text-shadow leading-tight"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>সনাতন বিদ্যার্থী পরিষদ</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/h1&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;h2 class="text-xl md:text-3xl text-saffron-100 font-medium mb-8 text-shadow"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>ড্যাফোডিল ইন্টারন্যাশনাল ইউনিভার্সিটি</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="text-gray-200 text-lg md:text-xl mb-10 max-w-2xl mx-auto"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>সত্য, সুন্দর ও পবিত্রতার সন্ধানে আমরা একতাবদ্ধ। ক্যাম্পাসে ধর্মীয় সংস্কৃতি চর্চা ও ভ্রাতৃত্ববোধ বজায় রাখতে আমরা অঙ্গীকারবদ্ধ।</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="flex flex-col sm:flex-row justify-center gap-4"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;!-- Google Form Link --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;a href="https://docs.google.com/forms" target="_blank" class="px-8 py-3 bg-saffron-600 hover:bg-saffron-700 text-white font-bold rounded-full transition duration-300 shadow-lg text-lg transform hover:scale-105 flex items-center justify-center gap-2"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;i class="fas fa-user-plus"&gt;&lt;/i&gt; যুক্ত হোন</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/a&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;a href="#events" class="px-8 py-3 bg-white/10 hover:bg-white/20 backdrop-blur-sm border-2 border-white text-white font-bold rounded-full transition duration-300 text-lg"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>কার্যক্রম দেখুন</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/a&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p2"><span class="Apple-converted-space">        </span></p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="absolute bottom-0 left-0 right-0"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" class="text-saffron-50 fill-current"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;path fill-opacity="1" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,112C672,96,768,96,864,112C960,128,1056,160,1152,160C1248,160,1344,128,1392,112L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"&gt;&lt;/path&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/svg&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/section&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- About Section --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;section id="about" class="py-20 px-4"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="max-w-6xl mx-auto"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="text-center mb-16"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;h2 class="text-3xl md:text-4xl font-bold text-saffron-900 mb-3"&gt;আমাদের সম্পর্কে&lt;/h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="w-24 h-1 bg-saffron-500 mx-auto rounded-full"&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="grid md:grid-cols-2 gap-12 items-center"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="space-y-6"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;p class="text-lg text-gray-700 leading-relaxed text-justify"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="font-bold text-saffron-600 text-xl"&gt;সনাতন বিদ্যার্থী পরিষদ&lt;/span&gt;, ড্যাফোডিল ইন্টারন্যাশনাল ইউনিভার্সিটি-এর সনাতন ধর্মাবলম্বী শিক্ষার্থীদের একটি ঐক্যবদ্ধ পরিবার।</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;p class="text-lg text-gray-700 leading-relaxed text-justify"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>আমরা বিশ্বাস করি "জীবের সেবা মানেই ঈশ্বরের সেবা"। তাই ধর্মীয় আচার-অনুষ্ঠানের পাশাপাশি আমরা বিভিন্ন সামাজিক ও মানবিক কার্যক্রমেও অংশগ্রহণ করে থাকি।</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-8"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="bg-white p-4 rounded-xl shadow-md border-b-4 border-saffron-500 text-center hover:-translate-y-2 transition duration-300"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;i class="fas fa-users text-3xl text-saffron-500 mb-2"&gt;&lt;/i&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;h3 class="font-bold text-gray-800"&gt;ঐক্য&lt;/h3&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="bg-white p-4 rounded-xl shadow-md border-b-4 border-saffron-500 text-center hover:-translate-y-2 transition duration-300"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;i class="fas fa-dharmachakra text-3xl text-saffron-500 mb-2"&gt;&lt;/i&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;h3 class="font-bold text-gray-800"&gt;সংস্কৃতি&lt;/h3&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="bg-white p-4 rounded-xl shadow-md border-b-4 border-saffron-500 text-center hover:-translate-y-2 transition duration-300"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;i class="fas fa-hands-helping text-3xl text-saffron-500 mb-2"&gt;&lt;/i&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;h3 class="font-bold text-gray-800"&gt;সেবা&lt;/h3&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="relative"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="absolute inset-0 bg-saffron-500 rounded-2xl transform rotate-3 opacity-20"&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;img src="https://images.unsplash.com/photo-1622324978712-4c253db5c010?q=80&amp;w=2070&amp;auto=format&amp;fit=crop" alt="Students Group" class="relative rounded-2xl shadow-xl w-full h-80 object-cover transform -rotate-2 hover:rotate-0 transition duration-500"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/section&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- Committee Section --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;section id="committee" class="py-20 bg-white"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="max-w-7xl mx-auto px-4"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="text-center mb-16"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;span class="text-saffron-600 font-bold tracking-wider uppercase text-sm"&gt;নেতৃত্ব&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;h2 class="text-3xl md:text-4xl font-bold text-gray-900 mt-2 mb-3"&gt;সংগঠন কাঠামো&lt;/h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="w-24 h-1 bg-saffron-500 mx-auto rounded-full"&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;!-- 1. Advisors Section --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="mb-16"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;h3 class="text-2xl font-bold text-center text-gray-800 mb-8 border-b inline-block mx-auto pb-2 border-saffron-300"&gt;উপদেষ্টা মণ্ডলী&lt;/h3&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-8 justify-center"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;!-- Advisor 1 --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="bg-white p-6 rounded-xl shadow-lg border-t-4 border-saffron-600 text-center"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="w-24 h-24 mx-auto bg-gray-200 rounded-full mb-4 overflow-hidden"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                             </span>&lt;!-- ছবি না থাকলে ডিফল্ট আইকন --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                             </span>&lt;i class="fas fa-user text-4xl text-gray-400 mt-6"&gt;&lt;/i&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                             </span>&lt;!-- &lt;img src="advisor1.jpg" class="w-full h-full object-cover"&gt; --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;h4 class="font-bold text-lg"&gt;শিক্ষক/উপদেষ্টার নাম&lt;/h4&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="text-sm text-gray-600"&gt;পদবী (যেমন: লেকচারার)&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="text-xs text-gray-500 mt-1"&gt;বিভাগ, DIU&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;!-- Advisor 2 --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="bg-white p-6 rounded-xl shadow-lg border-t-4 border-saffron-600 text-center"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="w-24 h-24 mx-auto bg-gray-200 rounded-full mb-4 overflow-hidden"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                             </span>&lt;i class="fas fa-user text-4xl text-gray-400 mt-6"&gt;&lt;/i&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;h4 class="font-bold text-lg"&gt;শিক্ষক/উপদেষ্টার নাম&lt;/h4&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="text-sm text-gray-600"&gt;পদবী&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="text-xs text-gray-500 mt-1"&gt;বিভাগ, DIU&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                     </span>&lt;!-- Advisor 3 --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                     </span>&lt;div class="bg-white p-6 rounded-xl shadow-lg border-t-4 border-saffron-600 text-center"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="w-24 h-24 mx-auto bg-gray-200 rounded-full mb-4 overflow-hidden"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                             </span>&lt;i class="fas fa-user text-4xl text-gray-400 mt-6"&gt;&lt;/i&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;h4 class="font-bold text-lg"&gt;শিক্ষক/উপদেষ্টার নাম&lt;/h4&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="text-sm text-gray-600"&gt;পদবী&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="text-xs text-gray-500 mt-1"&gt;বিভাগ, DIU&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;!-- 2. Convenor Committee --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="mb-16"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;h3 class="text-2xl font-bold text-center text-gray-800 mb-8 border-b inline-block mx-auto pb-2 border-saffron-300"&gt;আহ্বায়ক কমিটি&lt;/h3&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-2xl mx-auto"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;!-- Convenor --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="bg-saffron-50 rounded-lg p-6 text-center shadow hover:shadow-md transition"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                         </span>&lt;div class="w-20 h-20 mx-auto bg-gray-300 rounded-full mb-3 overflow-hidden"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;i class="fas fa-user text-3xl text-gray-500 mt-5"&gt;&lt;/i&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;h4 class="font-bold text-lg"&gt;নাম (আহ্বায়ক)&lt;/h4&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="text-saffron-700 font-medium"&gt;আহ্বায়ক&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="text-xs text-gray-500"&gt;আইডি/ব্যাচ&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;!-- Joint Convenor --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="bg-saffron-50 rounded-lg p-6 text-center shadow hover:shadow-md transition"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="w-20 h-20 mx-auto bg-gray-300 rounded-full mb-3 overflow-hidden"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;i class="fas fa-user text-3xl text-gray-500 mt-5"&gt;&lt;/i&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;h4 class="font-bold text-lg"&gt;নাম (যুগ্ম-আহ্বায়ক)&lt;/h4&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="text-saffron-700 font-medium"&gt;যুগ্ম-আহ্বায়ক&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="text-xs text-gray-500"&gt;আইডি/ব্যাচ&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;!-- 3. Executive Committee Grid --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;h3 class="text-2xl font-bold text-center text-gray-800 mb-8 border-b inline-block mx-auto pb-2 border-saffron-300"&gt;কার্যনির্বাহী কমিটি&lt;/h3&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;!-- President --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="bg-white rounded-2xl overflow-hidden shadow-lg group hover:shadow-2xl transition duration-300 border border-gray-100"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="relative overflow-hidden h-64 bg-gray-200"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;!-- এখানে আসল ছবি দিন --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;img src="https://via.placeholder.com/300x400?text=President" alt="President" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="p-6 text-center"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;h3 class="text-xl font-bold text-gray-900 mb-1"&gt;সুব্রত দাস&lt;/h3&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="text-saffron-600 font-semibold mb-2"&gt;সভাপতি&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="text-gray-500 text-sm"&gt;সিএসই বিভাগ&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;!-- GS --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="bg-white rounded-2xl overflow-hidden shadow-lg group hover:shadow-2xl transition duration-300 border border-gray-100"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="relative overflow-hidden h-64 bg-gray-200"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;img src="https://via.placeholder.com/300x400?text=Secretary" alt="GS" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="p-6 text-center"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;h3 class="text-xl font-bold text-gray-900 mb-1"&gt;অনিক রায়&lt;/h3&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="text-saffron-600 font-semibold mb-2"&gt;সাধারণ সম্পাদক&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="text-gray-500 text-sm"&gt;ইইই বিভাগ&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;!-- Organizing --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="bg-white rounded-2xl overflow-hidden shadow-lg group hover:shadow-2xl transition duration-300 border border-gray-100"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="relative overflow-hidden h-64 bg-gray-200"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;img src="https://via.placeholder.com/300x400?text=Org+Sec" alt="Org Sec" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="p-6 text-center"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;h3 class="text-xl font-bold text-gray-900 mb-1"&gt;জয়ন্ত কুমার&lt;/h3&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="text-saffron-600 font-semibold mb-2"&gt;সাংগঠনিক সম্পাদক&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="text-gray-500 text-sm"&gt;সফটওয়্যার ইঞ্জিনিয়ারিং&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;!-- Finance --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="bg-white rounded-2xl overflow-hidden shadow-lg group hover:shadow-2xl transition duration-300 border border-gray-100"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="relative overflow-hidden h-64 bg-gray-200"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;img src="https://via.placeholder.com/300x400?text=Finance" alt="Finance" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="p-6 text-center"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;h3 class="text-xl font-bold text-gray-900 mb-1"&gt;পূজা রানী&lt;/h3&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="text-saffron-600 font-semibold mb-2"&gt;অর্থ সম্পাদক&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="text-gray-500 text-sm"&gt;ফার্মেসি বিভাগ&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p2"><span class="Apple-converted-space">            </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="text-center mt-12"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;!-- Modal Trigger --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;button onclick="toggleModal('committee-modal')" class="px-8 py-3 border-2 border-saffron-500 text-saffron-600 font-bold rounded-full hover:bg-saffron-500 hover:text-white transition duration-300"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>সম্পূর্ণ কমিটি দেখুন</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/section&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- Events Section --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;section id="events" class="py-20 px-4 bg-gray-50"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="max-w-6xl mx-auto"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="text-center mb-16"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-3"&gt;পূর্ববর্তী ইভেন্টসমূহ&lt;/h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="w-24 h-1 bg-saffron-500 mx-auto rounded-full"&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="space-y-8"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;!-- Event 1 --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition duration-300 flex flex-col md:flex-row"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="md:w-1/3"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;img src="https://images.unsplash.com/photo-1548691929-197e4125b28d?q=80&amp;w=2070&amp;auto=format&amp;fit=crop" alt="Saraswati Puja" class="w-full h-full object-cover min-h-[250px]"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="p-8 md:w-2/3 flex flex-col justify-center"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="flex items-center text-sm text-gray-500 mb-2"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;i class="far fa-calendar-alt mr-2 text-saffron-500"&gt;&lt;/i&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;span&gt;১০ মাঘ, ১৪৩১ (২০২৫)&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;h3 class="text-2xl font-bold text-gray-800 mb-3"&gt;সরস্বতী পূজা ২০২৫&lt;/h3&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="text-gray-600 mb-4 line-clamp-3"&gt;বিশ্ববিদ্যালয় ক্যাম্পাসে আড়ম্বরপূর্ণভাবে বাণী অর্চনা উদযাপন। সকাল থেকে পূজা, অঞ্জলি প্রদান এবং দুপুরে মহাপ্রসাদ বিতরণের আয়োজন করা হয়। সকল ধর্ম, বর্ণের শিক্ষার্থীদের মিলনমেলায় পরিণত হয় ক্যাম্পাস।&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;button onclick="openEventModal('event1')" class="text-saffron-600 font-semibold hover:underline text-left"&gt;বিস্তারিত দেখুন &lt;i class="fas fa-arrow-right ml-1"&gt;&lt;/i&gt;&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;!-- Event 2 --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition duration-300 flex flex-col md:flex-row"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="md:w-1/3 md:order-last"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;img src="https://images.unsplash.com/photo-1618218178738-4e08c2a30b76?q=80&amp;w=2070&amp;auto=format&amp;fit=crop" alt="Janmashtami" class="w-full h-full object-cover min-h-[250px]"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="p-8 md:w-2/3 flex flex-col justify-center"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="flex items-center text-sm text-gray-500 mb-2"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;i class="far fa-calendar-alt mr-2 text-saffron-500"&gt;&lt;/i&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;span&gt;ভাদ্র, ১৪৩১&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;h3 class="text-2xl font-bold text-gray-800 mb-3"&gt;শুভ জন্মাষ্টমী শোভাযাত্রা&lt;/h3&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="text-gray-600 mb-4 line-clamp-3"&gt;ভগবান শ্রী কৃষ্ণের জন্মতিথি উপলক্ষে ক্যাম্পাসে বর্ণাঢ্য শোভাযাত্রা ও আলোচনা সভার আয়োজন। সনাতন ধর্মের শিক্ষা ও শ্রী কৃষ্ণের আদর্শ নিয়ে আলোচনা করা হয়।&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;button onclick="openEventModal('event2')" class="text-saffron-600 font-semibold hover:underline text-left"&gt;বিস্তারিত দেখুন &lt;i class="fas fa-arrow-right ml-1"&gt;&lt;/i&gt;&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/section&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- Gallery Section (Restored to Masonry Style) --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;section id="gallery" class="py-20 px-4"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="max-w-7xl mx-auto"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="text-center mb-16"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-3"&gt;স্মৃতিময় মুহূর্ত&lt;/h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="w-24 h-1 bg-saffron-500 mx-auto rounded-full"&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;p class="mt-4 text-gray-600"&gt;আমাদের আয়োজনের কিছু খণ্ডচিত্র&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="grid grid-cols-2 md:grid-cols-4 gap-4"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="grid gap-4"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;img class="h-auto max-w-full rounded-lg hover:opacity-90 transition cursor-pointer" src="https://images.unsplash.com/photo-1598404222036-74971261d563?q=80&amp;w=1935&amp;auto=format&amp;fit=crop" alt=""&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;img class="h-auto max-w-full rounded-lg hover:opacity-90 transition cursor-pointer" src="https://images.unsplash.com/photo-1574347895393-2c1b960b70c3?q=80&amp;w=2070&amp;auto=format&amp;fit=crop" alt=""&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="grid gap-4"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;img class="h-auto max-w-full rounded-lg hover:opacity-90 transition cursor-pointer" src="https://images.unsplash.com/photo-1561578311-b75373307221?q=80&amp;w=2070&amp;auto=format&amp;fit=crop" alt=""&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;img class="h-auto max-w-full rounded-lg hover:opacity-90 transition cursor-pointer" src="https://images.unsplash.com/photo-1606216794074-735e91aa2c92?q=80&amp;w=1887&amp;auto=format&amp;fit=crop" alt=""&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="grid gap-4"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;img class="h-auto max-w-full rounded-lg hover:opacity-90 transition cursor-pointer" src="https://images.unsplash.com/photo-1524069290636-e575883d5f1c?q=80&amp;w=1887&amp;auto=format&amp;fit=crop" alt=""&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;img class="h-auto max-w-full rounded-lg hover:opacity-90 transition cursor-pointer" src="https://images.unsplash.com/photo-1517457373958-b7bdd4587205?q=80&amp;w=2069&amp;auto=format&amp;fit=crop" alt=""&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="grid gap-4"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;img class="h-auto max-w-full rounded-lg hover:opacity-90 transition cursor-pointer" src="https://images.unsplash.com/photo-1596263576925-50e501d51159?q=80&amp;w=1887&amp;auto=format&amp;fit=crop" alt=""&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;img class="h-auto max-w-full rounded-lg hover:opacity-90 transition cursor-pointer" src="https://images.unsplash.com/photo-1623869915939-f4705030222d?q=80&amp;w=1887&amp;auto=format&amp;fit=crop" alt=""&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/section&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- Join CTA (Restored) --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;section class="py-16 bg-saffron-600 text-white"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="max-w-4xl mx-auto px-4 text-center"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;h2 class="text-3xl font-bold mb-4"&gt;আমাদের পরিবারের অংশ হোন&lt;/h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="text-xl mb-8 opacity-90"&gt;আপনি যদি ড্যাফোডিল ইন্টারন্যাশনাল ইউনিভার্সিটির সনাতন ধর্মাবলম্বী শিক্ষার্থী হয়ে থাকেন, তবে আজই আমাদের সাথে যুক্ত হোন।&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;a href="https://docs.google.com/forms" target="_blank" class="inline-block bg-white text-saffron-600 font-bold py-3 px-8 rounded-full shadow-lg hover:bg-gray-100 transition duration-300 transform hover:scale-105"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>রেজিস্ট্রেশন করুন</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/a&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/section&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- Donation Section (Moved Here) --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;section id="donation" class="py-20 bg-saffron-900 text-white relative overflow-hidden"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;!-- Decoration --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="absolute top-0 right-0 -mr-20 -mt-20 w-64 h-64 rounded-full bg-saffron-800 opacity-50"&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="absolute bottom-0 left-0 -ml-20 -mb-20 w-80 h-80 rounded-full bg-saffron-800 opacity-50"&gt;&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="max-w-4xl mx-auto px-4 text-center relative z-10"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;h2 class="text-3xl md:text-4xl font-bold mb-6"&gt;আমাদের পাশে দাঁড়ান&lt;/h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="text-lg text-saffron-100 mb-10 max-w-2xl mx-auto"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>আমাদের বিভিন্ন ধর্মীয় উৎসব ও সামাজিক কার্যক্রম সফল করতে আপনাদের সহযোগিতা একান্ত কাম্য। আপনার সামান্য অনুদান আমাদের বড় কোনো ভালো কাজে সহায়তা করতে পারে।</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/p&gt;</p>
-<p class="p2"><span class="Apple-converted-space">            </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="grid md:grid-cols-2 gap-6 max-w-2xl mx-auto mb-10"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="bg-white text-gray-800 p-6 rounded-xl shadow-lg transform hover:scale-105 transition"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="flex items-center justify-center mb-4"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;img src="https://freelogopng.com/images/all_img/1656234745bkash-app-logo-png.png" alt="Bkash" class="h-10"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;h3 class="text-xl font-bold mb-1"&gt;বিকাশ (পার্সোনাল)&lt;/h3&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;p class="text-2xl font-mono font-bold text-saffron-600 copy-text cursor-pointer" onclick="copyToClipboard('01xxxxxxxxx')"&gt;01xxxxxxxxx&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;p class="text-xs text-gray-500 mt-2"&gt;(নাম্বারটি কপি করতে ক্লিক করুন)&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="bg-white text-gray-800 p-6 rounded-xl shadow-lg transform hover:scale-105 transition"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="flex items-center justify-center mb-4"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;img src="https://freelogopng.com/images/all_img/1679248787Nagad-Logo.png" alt="Nagad" class="h-10"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;h3 class="text-xl font-bold mb-1"&gt;নগদ (পার্সোনাল)&lt;/h3&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;p class="text-2xl font-mono font-bold text-orange-600 copy-text cursor-pointer" onclick="copyToClipboard('01xxxxxxxxx')"&gt;01xxxxxxxxx&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;p class="text-xs text-gray-500 mt-2"&gt;(নাম্বারটি কপি করতে ক্লিক করুন)&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p2"><span class="Apple-converted-space">            </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="text-sm opacity-80"&gt;ডোনেশন পাঠানোর পর দয়া করে আমাদের ফেইসবুক পেজে অথবা নাম্বারে মেসেজ দিয়ে নিশ্চিত করবেন।&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/section&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- Footer --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;footer id="contact" class="bg-gray-900 text-gray-300 pt-16 pb-8 border-t border-gray-800"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-12 mb-12"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;!-- About --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="flex items-center space-x-3 mb-6"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;i class="fas fa-om text-saffron-500 text-3xl"&gt;&lt;/i&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;span class="text-2xl font-bold text-white"&gt;SVP DIU&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;p class="text-gray-400 leading-relaxed mb-6"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>সনাতন বিদ্যার্থী পরিষদ, ড্যাফোডিল ইন্টারন্যাশনাল ইউনিভার্সিটির সনাতন শিক্ষার্থীদের একটি অরাজনৈতিক ও সামাজিক সংগঠন।</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="flex space-x-4"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;a href="https://www.facebook.com/svpdiu/" target="_blank" class="h-10 w-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-saffron-500 hover:text-white transition duration-300"&gt;&lt;i class="fab fa-facebook-f"&gt;&lt;/i&gt;&lt;/a&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;a href="#" class="h-10 w-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-saffron-500 hover:text-white transition duration-300"&gt;&lt;i class="fab fa-instagram"&gt;&lt;/i&gt;&lt;/a&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;a href="#" class="h-10 w-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-saffron-500 hover:text-white transition duration-300"&gt;&lt;i class="fab fa-youtube"&gt;&lt;/i&gt;&lt;/a&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;!-- Quick Links --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;h3 class="text-white text-xl font-bold mb-6 border-l-4 border-saffron-500 pl-3"&gt;গুরুত্বপূর্ণ লিংক&lt;/h3&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;ul class="space-y-3"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;li&gt;&lt;a href="#about" class="hover:text-saffron-500 transition"&gt;&lt;i class="fas fa-chevron-right text-xs mr-2"&gt;&lt;/i&gt;আমাদের সম্পর্কে&lt;/a&gt;&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;li&gt;&lt;a href="#committee" class="hover:text-saffron-500 transition"&gt;&lt;i class="fas fa-chevron-right text-xs mr-2"&gt;&lt;/i&gt;কার্যনির্বাহী কমিটি&lt;/a&gt;&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;li&gt;&lt;a href="#events" class="hover:text-saffron-500 transition"&gt;&lt;i class="fas fa-chevron-right text-xs mr-2"&gt;&lt;/i&gt;ইভেন্ট গ্যালারি&lt;/a&gt;&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;li&gt;&lt;a href="#donation" class="hover:text-saffron-500 transition"&gt;&lt;i class="fas fa-chevron-right text-xs mr-2"&gt;&lt;/i&gt;দান করুন&lt;/a&gt;&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/ul&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;!-- Contact --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;h3 class="text-white text-xl font-bold mb-6 border-l-4 border-saffron-500 pl-3"&gt;যোগাযোগ&lt;/h3&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;ul class="space-y-4"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;li class="flex items-start"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;i class="fas fa-map-marker-alt mt-1.5 mr-3 text-saffron-500"&gt;&lt;/i&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span&gt;ড্যাফোডিল স্মার্ট সিটি, আশুলিয়া, সাভার, ঢাকা।&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;li class="flex items-center"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;i class="fas fa-envelope mr-3 text-saffron-500"&gt;&lt;/i&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span&gt;svp.diu@gmail.com&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;li class="flex items-center"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;i class="fas fa-phone-alt mr-3 text-saffron-500"&gt;&lt;/i&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span&gt;+880 1xxxxxxxxx&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/ul&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="border-t border-gray-800 pt-8 mt-8 text-center"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;p&gt;&amp;copy; ২০২৬ সনাতন বিদ্যার্থী পরিষদ, DIU | কারিগরি সহযোগিতায় &lt;span class="text-saffron-500"&gt;SVP IT Team&lt;/span&gt;&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/footer&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- MODAL IMPLEMENTATION --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- 1. Committee Modal --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div id="committee-modal" class="modal opacity-0 pointer-events-none fixed w-full h-full top-0 left-0 flex items-center justify-center z-[100]"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="modal-overlay absolute w-full h-full bg-gray-900 opacity-50"&gt;&lt;/div&gt;</p>
-<p class="p2"><span class="Apple-converted-space">        </span></p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="modal-container bg-white w-11/12 md:max-w-3xl mx-auto rounded shadow-lg z-50 overflow-y-auto max-h-[90vh]"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="modal-content py-4 text-left px-6"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;!-- Title --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="flex justify-between items-center pb-3 border-b"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;p class="text-2xl font-bold text-saffron-700"&gt;সম্পূর্ণ কার্যনির্বাহী কমিটি&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="modal-close cursor-pointer z-50" onclick="toggleModal('committee-modal')"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;i class="fas fa-times text-gray-500 hover:text-red-500"&gt;&lt;/i&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;!-- Body: Full Committee List --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="my-5"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;p class="mb-4 text-gray-600 italic"&gt;এখানে কমিটির সকল সদস্যের নাম থাকবে। (আপনি টেক্সট এডিটর দিয়ে এই সেকশনে আরও নাম যুক্ত করতে পারবেন)&lt;/p&gt;</p>
-<p class="p2"><span class="Apple-converted-space">                    </span></p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="grid grid-cols-1 md:grid-cols-2 gap-4"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;!-- Example Items --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="p-3 border rounded hover:bg-gray-50"&gt;&lt;span class="font-bold"&gt;নাম:&lt;/span&gt; সদস্য ১ &lt;br&gt; &lt;span class="text-sm text-gray-500"&gt;পদবী: সহ-সভাপতি&lt;/span&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="p-3 border rounded hover:bg-gray-50"&gt;&lt;span class="font-bold"&gt;নাম:&lt;/span&gt; সদস্য ২ &lt;br&gt; &lt;span class="text-sm text-gray-500"&gt;পদবী: যুগ্ম সাধারণ সম্পাদক&lt;/span&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="p-3 border rounded hover:bg-gray-50"&gt;&lt;span class="font-bold"&gt;নাম:&lt;/span&gt; সদস্য ৩ &lt;br&gt; &lt;span class="text-sm text-gray-500"&gt;পদবী: সাংস্কৃতিক সম্পাদক&lt;/span&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="p-3 border rounded hover:bg-gray-50"&gt;&lt;span class="font-bold"&gt;নাম:&lt;/span&gt; সদস্য ৪ &lt;br&gt; &lt;span class="text-sm text-gray-500"&gt;পদবী: দপ্তর সম্পাদক&lt;/span&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="p-3 border rounded hover:bg-gray-50"&gt;&lt;span class="font-bold"&gt;নাম:&lt;/span&gt; সদস্য ৫ &lt;br&gt; &lt;span class="text-sm text-gray-500"&gt;পদবী: প্রচার সম্পাদক&lt;/span&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;!-- Add more rows here --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;!-- Footer --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="flex justify-end pt-2"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;button class="px-4 py-2 bg-saffron-600 text-white text-base font-medium rounded-md shadow-sm hover:bg-saffron-700 focus:outline-none focus:ring-2 focus:ring-saffron-300" onclick="toggleModal('committee-modal')"&gt;বন্ধ করুন&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- 2. Event Details Modal --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div id="event-modal" class="modal opacity-0 pointer-events-none fixed w-full h-full top-0 left-0 flex items-center justify-center z-[100]"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="modal-overlay absolute w-full h-full bg-gray-900 opacity-50"&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="modal-container bg-white w-11/12 md:max-w-2xl mx-auto rounded shadow-lg z-50 overflow-y-auto max-h-[90vh]"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="modal-content py-4 text-left px-6"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="flex justify-between items-center pb-3 border-b"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;p class="text-2xl font-bold text-gray-800" id="modal-event-title"&gt;ইভেন্টের নাম&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="modal-close cursor-pointer z-50" onclick="toggleModal('event-modal')"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;i class="fas fa-times text-gray-500 hover:text-red-500"&gt;&lt;/i&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="my-5"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;img id="modal-event-img" src="" class="w-full h-64 object-cover rounded-lg mb-4 hidden"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;p id="modal-event-desc" class="text-gray-600 leading-relaxed"&gt;বিস্তারিত বর্ণনা...&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="flex justify-end pt-2"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;button class="px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-700" onclick="toggleModal('event-modal')"&gt;বন্ধ করুন&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- JavaScript --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;script&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>// Mobile Menu</p>
-<p class="p1"><span class="Apple-converted-space">        </span>const btn = document.getElementById('mobile-menu-btn');</p>
-<p class="p1"><span class="Apple-converted-space">        </span>const menu = document.getElementById('mobile-menu');</p>
-<p class="p1"><span class="Apple-converted-space">        </span>btn.addEventListener('click', () =&gt; { menu.classList.toggle('hidden'); });</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>// Modal Logic</p>
-<p class="p1"><span class="Apple-converted-space">        </span>function toggleModal(modalID) {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>const modal = document.getElementById(modalID);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>modal.classList.toggle('opacity-0');</p>
-<p class="p1"><span class="Apple-converted-space">            </span>modal.classList.toggle('pointer-events-none');</p>
-<p class="p1"><span class="Apple-converted-space">            </span>document.body.classList.toggle('modal-active');</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>// Close modal when clicking outside</p>
-<p class="p1"><span class="Apple-converted-space">        </span>document.querySelectorAll('.modal-overlay').forEach(overlay =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>overlay.addEventListener('click', function() {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>this.parentElement.classList.add('opacity-0');</p>
-<p class="p1"><span class="Apple-converted-space">                </span>this.parentElement.classList.add('pointer-events-none');</p>
-<p class="p1"><span class="Apple-converted-space">                </span>document.body.classList.remove('modal-active');</p>
-<p class="p1"><span class="Apple-converted-space">            </span>});</p>
-<p class="p1"><span class="Apple-converted-space">        </span>});</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>// Dynamic Event Modal Data</p>
-<p class="p1"><span class="Apple-converted-space">        </span>const eventData = {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>'event1': {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>title: 'সরস্বতী পূজা ২০২৫',</p>
-<p class="p1"><span class="Apple-converted-space">                </span>desc: '১০ মাঘ ১৪৩১ বঙ্গাব্দে ড্যাফোডিল ইন্টারন্যাশনাল ইউনিভার্সিটির ক্যাম্পাসে সরস্বতী পূজা উদযাপিত হয়েছে। সকাল ৯টায় পূজা আরম্ভ, ১০:৩০ এ পুষ্পাঞ্জলি এবং দুপুর ১টায় মহাপ্রসাদ বিতরণের আয়োজন করা হয়। বিশ্ববিদ্যালয়ের সকল বিভাগের শিক্ষক-শিক্ষিকা এবং ছাত্রছাত্রীদের স্বতঃস্ফূর্ত অংশগ্রহণে অনুষ্ঠানটি সাফল্যমণ্ডিত হয়। সন্ধ্যায় ছিল আরতি এবং সাংস্কৃতিক অনুষ্ঠান।',</p>
-<p class="p1"><span class="Apple-converted-space">                </span>img: 'https://images.unsplash.com/photo-1548691929-197e4125b28d?q=80&amp;w=2070&amp;auto=format&amp;fit=crop'</p>
-<p class="p1"><span class="Apple-converted-space">            </span>},</p>
-<p class="p1"><span class="Apple-converted-space">            </span>'event2': {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>title: 'শুভ জন্মাষ্টমী শোভাযাত্রা',</p>
-<p class="p1"><span class="Apple-converted-space">                </span>desc: 'ভগবান শ্রী কৃষ্ণের শুভ জন্মদিন উপলক্ষে ক্যাম্পাসে বর্ণাঢ্য র‍্যালি বের করা হয়। র‍্যালিটি পুরো ক্যাম্পাস প্রদক্ষিণ করে একাডেমিক বিল্ডিং-এর সামনে এসে শেষ হয়। এরপর সংক্ষিপ্ত আলোচনা সভায় শ্রীমদ্ভগবদ্গীতার গুরুত্ব নিয়ে আলোচনা করেন আমাদের শ্রদ্ধেয় শিক্ষকমণ্ডলী।',</p>
-<p class="p1"><span class="Apple-converted-space">                </span>img: 'https://images.unsplash.com/photo-1618218178738-4e08c2a30b76?q=80&amp;w=2070&amp;auto=format&amp;fit=crop'</p>
-<p class="p1"><span class="Apple-converted-space">            </span>}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>};</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>function openEventModal(eventId) {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>const data = eventData[eventId];</p>
-<p class="p1"><span class="Apple-converted-space">            </span>if(data) {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>document.getElementById('modal-event-title').innerText = data.title;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>document.getElementById('modal-event-desc').innerText = data.desc;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>const img = document.getElementById('modal-event-img');</p>
-<p class="p1"><span class="Apple-converted-space">                </span>img.src = data.img;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>img.classList.remove('hidden');</p>
-<p class="p1"><span class="Apple-converted-space">                </span>toggleModal('event-modal');</p>
-<p class="p1"><span class="Apple-converted-space">            </span>}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>// Copy to Clipboard</p>
-<p class="p1"><span class="Apple-converted-space">        </span>function copyToClipboard(text) {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>navigator.clipboard.writeText(text).then(() =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>alert("নাম্বারটি কপি হয়েছে: " + text);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>});</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/script&gt;</p>
-<p class="p1">&lt;/body&gt;</p>
-<p class="p1">&lt;/html&gt;</p>
+<body class="bg-gray-100 font-sans antialiased">
+    
+    <!-- Root element for React App -->
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const { useState } = React;
+
+        // ==========================================
+        // ICON COMPONENTS (Replaces lucide-react)
+        // ==========================================
+        const Icon = ({ children, size = 24, className = "" }) => (
+            <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
+                {children}
+            </svg>
+        );
+
+        const Home = (p) => <Icon {...p}><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></Icon>;
+        const PlusCircle = (p) => <Icon {...p}><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></Icon>;
+        const ClipboardList = (p) => <Icon {...p}><rect width="8" height="4" x="8" y="2" rx="1" ry="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="M12 11h4"/><path d="M12 16h4"/><path d="M8 11h.01"/><path d="M8 16h.01"/></Icon>;
+        const User = (p) => <Icon {...p}><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></Icon>;
+        const Search = (p) => <Icon {...p}><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></Icon>;
+        const Filter = (p) => <Icon {...p}><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></Icon>;
+        const ArrowLeft = (p) => <Icon {...p}><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></Icon>;
+        const ShieldCheck = (p) => <Icon {...p}><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/><path d="m9 12 2 2 4-4"/></Icon>;
+        const Award = (p) => <Icon {...p}><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></Icon>;
+        const Star = (p) => <Icon {...p}><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></Icon>;
+        const Coins = (p) => <Icon {...p}><circle cx="8" cy="8" r="6"/><line x1="12" y1="2" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="22"/><path d="M15 6h-3a3 3 0 0 0 0 6h1a3 3 0 0 1 0 6h-3"/></Icon>;
+        const MoreHorizontal = (p) => <Icon {...p}><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/></Icon>;
+        const Bookmark = (p) => <Icon {...p}><path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z"/></Icon>;
+        const EyeOff = (p) => <Icon {...p}><path d="M9.88 9.88a3 3 0 1 0 4.24 4.24"/><path d="M10.73 5.08A10.43 10.43 0 0 1 12 5c7 0 10 7 10 7a13.16 13.16 0 0 1-1.67 2.68"/><path d="M6.61 6.61A13.526 13.526 0 0 0 2 12s3 7 10 7a9.74 9.74 0 0 0 5.39-1.61"/><line x1="2" y1="2" x2="22" y2="22"/></Icon>;
+
+        // ==========================================
+        // MAIN APP COMPONENT
+        // ==========================================
+        function App() {
+            // App routing state
+            const [currentView, setCurrentView] = useState('onboarding');
+            const [selectedGig, setSelectedGig] = useState(null);
+
+            // Mock User Data
+            const [user, setUser] = useState({
+                name: 'Name Charan',
+                email: 'student@diu.edu.bd',
+                studentId: 'Student 0000',
+                department: 'Department of CSE',
+                points: 500,
+                rating: 4.8,
+                skills: ['React', 'Graphic Design']
+            });
+
+            // Mock Gigs Data (Active Feed)
+            const [gigs, setGigs] = useState([
+                {
+                    id: 1,
+                    title: 'Need a logo for my SSGuard project',
+                    description: 'This is a logo for CSE321 course project. Needs to be professional and simple. I have attached some reference ideas in my mind. Need this by tomorrow.',
+                    reward: 100,
+                    urgency: 'High',
+                    deadline: 'Oct 25, 2023',
+                    posterName: 'Rahim Uddin',
+                    posterRating: 4.5,
+                    category: 'Design',
+                    status: 'open'
+                },
+                {
+                    id: 2,
+                    title: 'Need help with Calculus II Assignment',
+                    description: 'Stuck on partial derivatives. Need someone to explain and help me solve 3 math problems.',
+                    reward: 50,
+                    urgency: 'Medium',
+                    deadline: 'Oct 26, 2023',
+                    posterName: 'Karim Hasan',
+                    posterRating: 4.9,
+                    category: 'Academic Notes',
+                    status: 'open'
+                },
+                {
+                    id: 3,
+                    title: 'Fix a bug in my React app',
+                    description: 'Getting a CORS error and some useEffect infinite loops. Need an expert to fix this within today.',
+                    reward: 150,
+                    urgency: 'High',
+                    deadline: 'Oct 24, 2023',
+                    posterName: 'Nusrat Jahan',
+                    posterRating: 4.2,
+                    category: 'IT/Coding',
+                    status: 'open'
+                }
+            ]);
+
+            // Mock Transactions Data
+            const [transactions, setTransactions] = useState([
+                { id: 1, history: 'Logo Design for TechFest', type: 'add', point: 50 },
+                { id: 2, history: 'Help with Math Assignment', type: 'add', point: 50 },
+                { id: 3, history: 'Bug Fixing in Python', type: 'sub', point: 20 },
+                { id: 4, history: 'Presentation Slide Design', type: 'sub', point: 50 },
+            ]);
+
+            // Handle Gig Acceptance
+            const handleAcceptGig = (gig) => {
+                alert('Kaj ti apni grohon korechen! (Gig Accepted)');
+                setCurrentView('my-tasks');
+            };
+
+            // Main Layout Wrapper
+            const Layout = ({ children, showNav = true }) => (
+                <div className="w-full min-h-screen bg-gray-100 flex justify-center font-sans">
+                    <div className="w-full max-w-md bg-gray-50 min-h-screen relative flex flex-col shadow-2xl overflow-hidden">
+                        {/* Main Content Area */}
+                        <div className="flex-1 overflow-y-auto pb-24">
+                            {children}
+                        </div>
+                        
+                        {/* Bottom Navigation */}
+                        {showNav && (
+                            <div className="fixed bottom-0 w-full max-w-md bg-white border-t border-gray-200 flex justify-around items-center p-3 pb-safe z-50 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.05)]">
+                                <button onClick={() => setCurrentView('dashboard')} className={`flex flex-col items-center transition-colors ${currentView === 'dashboard' ? 'text-blue-600' : 'text-gray-400 hover:text-gray-600'}`}>
+                                    <Home size={24} className={currentView === 'dashboard' ? 'fill-current' : ''} />
+                                </button>
+                                <button onClick={() => setCurrentView('my-tasks')} className={`flex flex-col items-center transition-colors ${currentView === 'my-tasks' ? 'text-blue-600' : 'text-gray-400 hover:text-gray-600'}`}>
+                                    <ClipboardList size={24} />
+                                </button>
+                                <button onClick={() => setCurrentView('post-gig')} className="flex flex-col items-center -mt-8 bg-blue-600 text-white p-3 rounded-full shadow-lg border-4 border-gray-50 hover:bg-blue-700 hover:scale-105 transition-transform">
+                                    <PlusCircle size={28} />
+                                </button>
+                                <button onClick={() => setCurrentView('profile')} className={`flex flex-col items-center transition-colors ${currentView === 'profile' ? 'text-blue-600' : 'text-gray-400 hover:text-gray-600'}`}>
+                                    <User size={24} />
+                                </button>
+                            </div>
+                        )}
+                    </div>
+                </div>
+            );
+
+            // 1. Onboarding & Authentication View
+            const OnboardingView = () => {
+                const skillsList = ['React', 'Graphic Design', 'Math', 'Hardware Fix', 'Business Design', 'Video Editing'];
+                const [selectedSkills, setSelectedSkills] = useState(['React', 'Graphic Design']);
+
+                const toggleSkill = (skill) => {
+                    if (selectedSkills.includes(skill)) {
+                        setSelectedSkills(selectedSkills.filter(s => s !== skill));
+                    } else {
+                        setSelectedSkills([...selectedSkills, skill]);
+                    }
+                };
+
+                return (
+                    <Layout showNav={false}>
+                        <div className="p-6 flex flex-col min-h-screen bg-white">
+                            <div className="flex justify-center mt-10 mb-8">
+                                <div className="w-20 h-24 bg-blue-50 border-2 border-blue-600 rounded-b-full rounded-t-md flex items-center justify-center flex-col shadow-sm">
+                                    <ShieldCheck className="text-blue-600 mb-1" size={32} />
+                                    <span className="text-xs font-bold text-blue-800 tracking-wider">DIU</span>
+                                </div>
+                            </div>
+                            
+                            <div className="space-y-4 flex-1">
+                                <div>
+                                    <label className="text-sm font-semibold text-gray-700">University Email</label>
+                                    <div className="flex items-center mt-1 border rounded-xl bg-gray-50 px-3 py-3 shadow-sm focus-within:border-blue-500 focus-within:ring-1 focus-within:ring-blue-500 transition-all">
+                                        <input type="text" placeholder="student" className="bg-transparent outline-none flex-1 w-full text-sm" />
+                                        <span className="text-gray-500 text-sm ml-1">@diu.edu.bd</span>
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <label className="text-sm font-semibold text-gray-700">Student ID</label>
+                                    <input type="text" placeholder="Student 0000" className="w-full mt-1 border rounded-xl bg-gray-50 px-3 py-3 outline-none focus:border-blue-500 shadow-sm focus:ring-1 focus:ring-blue-500 transition-all text-sm" />
+                                </div>
+
+                                <div>
+                                    <label className="text-sm font-semibold text-gray-700">Password</label>
+                                    <div className="flex items-center mt-1 border rounded-xl bg-gray-50 px-3 py-3 shadow-sm focus-within:border-blue-500 focus-within:ring-1 focus-within:ring-blue-500 transition-all">
+                                        <input type="password" placeholder="••••••••" className="bg-transparent outline-none flex-1 w-full text-sm" />
+                                        <EyeOff size={18} className="text-gray-400 cursor-pointer hover:text-gray-600" />
+                                    </div>
+                                </div>
+
+                                <div className="pt-2">
+                                    <label className="text-sm font-semibold text-gray-700">Skill Selection</label>
+                                    <div className="flex flex-wrap gap-2 mt-3">
+                                        {skillsList.map(skill => (
+                                            <button 
+                                                key={skill}
+                                                onClick={() => toggleSkill(skill)}
+                                                className={`px-3 py-1.5 text-[11px] font-bold rounded-full border transition-all ${selectedSkills.includes(skill) ? 'bg-blue-600 text-white border-blue-600 shadow-md' : 'bg-white text-gray-600 border-gray-300 hover:bg-gray-50'}`}
+                                            >
+                                                {skill}
+                                            </button>
+                                        ))}
+                                    </div>
+                                    <p className="text-xs text-blue-600 text-center mt-4 font-semibold cursor-pointer hover:underline">Show more skills</p>
+                                </div>
+                            </div>
+
+                            <div className="mt-8 space-y-4 pb-4">
+                                <button onClick={() => setCurrentView('dashboard')} className="w-full bg-blue-600 text-white font-bold py-3.5 rounded-xl shadow-lg hover:bg-blue-700 active:scale-95 transition-all">
+                                    Login
+                                </button>
+                                <p className="text-center text-sm text-blue-600 font-bold cursor-pointer hover:underline">Register</p>
+                                
+                                <div className="flex items-center justify-center gap-2 mt-6 p-3 bg-blue-50/50 rounded-xl border border-blue-100">
+                                    <ShieldCheck className="text-blue-500" size={18} />
+                                    <p className="text-xs text-blue-800 font-medium">Security and exclusive campus feel</p>
+                                </div>
+                            </div>
+                        </div>
+                    </Layout>
+                );
+            };
+
+            // 2. Main Dashboard View
+            const DashboardView = () => {
+                return (
+                    <Layout>
+                        <div className="bg-white min-h-full">
+                            {/* Top Widget */}
+                            <div className="bg-blue-600 p-6 rounded-b-[2rem] text-white shadow-md relative overflow-hidden">
+                                <div className="absolute -right-10 -top-10 w-32 h-32 bg-blue-500 rounded-full opacity-50"></div>
+                                <div className="absolute top-10 -left-6 w-16 h-16 bg-blue-400 rounded-full opacity-30"></div>
+                                <h2 className="text-sm font-medium opacity-90 relative z-10">Virtual Point Balance</h2>
+                                <div className="flex items-center justify-between mt-1 relative z-10">
+                                    <h1 className="text-4xl font-extrabold tracking-tight">{user.points} <span className="text-xl font-semibold opacity-80">VP</span></h1>
+                                    <div className="bg-yellow-400 text-yellow-900 rounded-full p-2.5 shadow-lg border-2 border-yellow-300">
+                                        <Coins size={28} />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className="p-4 mt-2">
+                                {/* Search Bar */}
+                                <div className="flex gap-2 mb-5">
+                                    <div className="flex-1 flex items-center bg-gray-50 rounded-xl px-4 py-3 border border-gray-200 shadow-sm focus-within:border-blue-400 focus-within:ring-1 focus-within:ring-blue-400 transition-all">
+                                        <Search size={18} className="text-gray-400" />
+                                        <input type="text" placeholder="Search gigs..." className="bg-transparent outline-none ml-2 w-full text-sm text-gray-700" />
+                                    </div>
+                                    <button className="bg-gray-50 p-3 rounded-xl border border-gray-200 text-gray-600 shadow-sm hover:bg-gray-100 transition-colors">
+                                        <Filter size={20} />
+                                    </button>
+                                </div>
+
+                                {/* Categories */}
+                                <div className="flex gap-2.5 overflow-x-auto pb-3 scrollbar-hide">
+                                    {['IT/Coding', 'Design', 'Academic Notes', 'Hardware'].map((cat, i) => (
+                                        <button key={cat} className={`px-4 py-2 rounded-full text-[11px] font-bold whitespace-nowrap transition-colors shadow-sm ${i === 0 ? 'bg-blue-600 text-white' : 'bg-white text-gray-600 border border-gray-200 hover:bg-gray-50'}`}>
+                                            {cat}
+                                        </button>
+                                    ))}
+                                </div>
+
+                                {/* Active Gig Feed */}
+                                <div className="mt-5 space-y-4">
+                                    <h3 className="font-extrabold text-gray-800 mb-3 px-1 text-lg">Active gig feed</h3>
+                                    {gigs.map(gig => (
+                                        <div 
+                                            key={gig.id} 
+                                            onClick={() => { setSelectedGig(gig); setCurrentView('gig-details'); }}
+                                            className="bg-white border border-gray-100 p-4.5 rounded-2xl shadow-[0_2px_10px_rgb(0,0,0,0.04)] hover:shadow-[0_4px_15px_rgb(0,0,0,0.08)] cursor-pointer transition-all border-b-4 border-b-transparent hover:border-b-blue-500"
+                                            style={{ padding: '1.25rem' }}
+                                        >
+                                            <div className="flex justify-between items-start">
+                                                <h4 className="font-bold text-gray-800 leading-snug pr-4 text-[15px]">{gig.title}</h4>
+                                                <Bookmark size={18} className={`${gig.id === 1 || gig.id === 2 ? 'text-blue-500 fill-current' : 'text-gray-300'} flex-shrink-0`} />
+                                            </div>
+                                            
+                                            <div className="flex items-center gap-4 mt-3">
+                                                <div className="flex items-center gap-1.5 bg-yellow-50 px-2.5 py-1 rounded-md border border-yellow-100">
+                                                    <Coins size={14} className="text-yellow-600" />
+                                                    <span className="text-[11px] font-bold text-yellow-800">{gig.reward} VP</span>
+                                                </div>
+                                                {gig.urgency === 'High' && (
+                                                    <div className="flex items-center gap-1">
+                                                        <span className="text-[10px] bg-red-50 border border-red-100 px-2 py-1 rounded text-red-600 font-bold uppercase tracking-wider">Urgent</span>
+                                                    </div>
+                                                )}
+                                            </div>
+                                            
+                                            <div className="mt-4 flex justify-between items-center border-t border-gray-50 pt-3">
+                                                <span className="text-xs text-gray-500 font-medium">By <span className="text-gray-800 font-semibold">{gig.posterName}</span></span>
+                                                <span className="text-[11px] font-bold text-blue-600 bg-blue-50 px-2 py-1 rounded">{gig.deadline}</span>
+                                            </div>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                        </div>
+                    </Layout>
+                );
+            };
+
+            // 3. Gig Details View
+            const GigDetailsView = () => {
+                if (!selectedGig) return null;
+
+                return (
+                    <Layout showNav={false}>
+                        <div className="bg-white min-h-screen flex flex-col">
+                            {/* Header */}
+                            <div className="flex items-center p-4 border-b border-gray-100 sticky top-0 bg-white/90 backdrop-blur-md z-10">
+                                <button onClick={() => setCurrentView('dashboard')} className="p-2 -ml-2 rounded-full hover:bg-gray-100 text-gray-600 transition-colors">
+                                    <ArrowLeft size={20} />
+                                </button>
+                                <h1 className="flex-1 text-center font-bold text-gray-800 mr-8 text-lg">Gig Details</h1>
+                            </div>
+
+                            <div className="p-5 flex-1">
+                                <h2 className="text-2xl font-extrabold text-gray-900 leading-tight">{selectedGig.title}</h2>
+                                
+                                <div className="flex flex-wrap items-center gap-3 mt-4 mb-6">
+                                    <div className="bg-yellow-50 border border-yellow-200 text-yellow-800 px-3.5 py-1.5 rounded-full text-sm font-extrabold flex items-center gap-1.5 shadow-sm">
+                                        <Coins size={16} className="text-yellow-600" />
+                                        {selectedGig.reward} VP
+                                    </div>
+                                    <div className="bg-blue-50 border border-blue-100 text-blue-700 px-3.5 py-1.5 rounded-full text-xs font-bold shadow-sm uppercase tracking-wide">
+                                        {selectedGig.category}
+                                    </div>
+                                    <div className="text-xs text-gray-500 w-full mt-2 font-medium bg-gray-50 p-2 rounded-lg border border-gray-100 flex items-center gap-2">
+                                        <span className="w-2 h-2 rounded-full bg-red-500 animate-pulse"></span>
+                                        Deadline: <span className="font-bold text-gray-800">{selectedGig.deadline}</span>
+                                    </div>
+                                </div>
+
+                                <h3 className="font-bold text-gray-800 mb-2 text-sm">Description</h3>
+                                <p className="text-gray-600 text-[15px] leading-relaxed mb-8 bg-gray-50 p-4 rounded-xl border border-gray-100">
+                                    {selectedGig.description}
+                                </p>
+
+                                {/* Poster Info */}
+                                <h3 className="font-bold text-gray-800 mb-3 text-sm">About the Poster</h3>
+                                <div className="flex items-center gap-4 bg-white p-4 rounded-xl border border-gray-200 shadow-sm">
+                                    <div className="w-14 h-14 bg-gradient-to-br from-blue-100 to-blue-200 rounded-full flex items-center justify-center text-blue-800 font-extrabold text-xl shadow-inner border border-blue-300">
+                                        {selectedGig.posterName.charAt(0)}
+                                    </div>
+                                    <div>
+                                        <h4 className="font-bold text-gray-900 text-[15px]">{selectedGig.posterName}</h4>
+                                        <p className="text-xs text-gray-500 font-medium">Department of CSE</p>
+                                        <div className="flex items-center gap-1 mt-1.5">
+                                            <Star size={12} className="text-yellow-400 fill-current" />
+                                            <Star size={12} className="text-yellow-400 fill-current" />
+                                            <Star size={12} className="text-yellow-400 fill-current" />
+                                            <Star size={12} className="text-yellow-400 fill-current" />
+                                            <Star size={12} className="text-gray-300 fill-current" />
+                                            <span className="text-xs font-bold text-gray-700 ml-1">{selectedGig.posterRating}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* Fixed Bottom Action */}
+                            <div className="p-4 bg-white border-t border-gray-100 pb-safe sticky bottom-0">
+                                <button 
+                                    onClick={() => handleAcceptGig(selectedGig)}
+                                    className="w-full bg-blue-600 text-white font-bold text-lg py-4 rounded-xl shadow-[0_8px_20px_rgba(37,99,235,0.25)] hover:bg-blue-700 active:scale-95 transition-all"
+                                >
+                                    Accept Gig
+                                </button>
+                            </div>
+                        </div>
+                    </Layout>
+                );
+            };
+
+            // 4. Post a Gig View
+            const PostGigView = () => {
+                const [title, setTitle] = useState('');
+                const [points, setPoints] = useState(100);
+
+                const handleSubmit = () => {
+                    if(title.trim() === '') {
+                        alert("Doya kore kajer title din! (Please enter a title)");
+                        return;
+                    }
+                    alert(`Kaj ti post kora hoyeche! ${points} VP reserve kora holo.`);
+                    setCurrentView('dashboard');
+                };
+
+                return (
+                    <Layout>
+                        <div className="bg-white min-h-screen">
+                            <div className="flex items-center p-4 border-b border-gray-100 sticky top-0 bg-white/90 backdrop-blur-md z-10">
+                                <button onClick={() => setCurrentView('dashboard')} className="p-2 -ml-2 rounded-full hover:bg-gray-100 text-gray-600 transition-colors">
+                                    <ArrowLeft size={20} />
+                                </button>
+                                <h1 className="flex-1 text-center font-bold text-gray-800 mr-8 text-lg">Post a Gig</h1>
+                            </div>
+
+                            <div className="p-5 space-y-6">
+                                <div>
+                                    <label className="font-bold text-gray-800 text-sm block mb-2">Gig Title</label>
+                                    <input 
+                                        type="text" 
+                                        placeholder="e.g., Need presentation slides" 
+                                        value={title}
+                                        onChange={(e) => setTitle(e.target.value)}
+                                        className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3.5 text-sm outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100 transition-all shadow-sm"
+                                    />
+                                </div>
+
+                                <div>
+                                    <label className="font-bold text-gray-800 text-sm block mb-2">Description</label>
+                                    <textarea 
+                                        placeholder="Explain what exactly needs to be done..." 
+                                        rows={5}
+                                        className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3.5 text-sm outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100 transition-all resize-none shadow-sm"
+                                    ></textarea>
+                                </div>
+
+                                <div className="bg-gradient-to-b from-blue-50 to-white p-5 rounded-xl border border-blue-100 shadow-sm">
+                                    <label className="font-extrabold text-gray-800 text-sm block mb-1">Point Allocation</label>
+                                    <p className="text-xs text-gray-500 mb-6 font-medium">Set a point value as reward for the task.</p>
+                                    
+                                    <div className="flex items-center justify-between mb-3">
+                                        <span className="text-lg font-black text-blue-600 bg-white px-3 py-1 rounded-lg border border-blue-100 shadow-sm">{points} VP</span>
+                                        <span className="text-[11px] font-bold text-gray-500 bg-gray-100 px-2 py-1 rounded">Max: {user.points} VP</span>
+                                    </div>
+                                    <input 
+                                        type="range" 
+                                        min="10" 
+                                        max={user.points} 
+                                        step="10"
+                                        value={points}
+                                        onChange={(e) => setPoints(e.target.value)}
+                                        className="w-full h-2.5 bg-blue-200 rounded-lg appearance-none cursor-pointer accent-blue-600 outline-none"
+                                    />
+                                    <div className="flex items-start gap-2 mt-4 text-[10px] text-gray-500 bg-gray-50 p-2 rounded border border-gray-100">
+                                        <ShieldCheck size={14} className="text-blue-500 flex-shrink-0" />
+                                        <p>This point will be held securely from your balance until the work is approved.</p>
+                                    </div>
+                                </div>
+
+                                <button 
+                                    onClick={handleSubmit}
+                                    className="w-full bg-blue-600 text-white font-extrabold text-[15px] py-4 rounded-xl shadow-[0_4px_14px_rgba(37,99,235,0.3)] hover:bg-blue-700 hover:shadow-[0_6px_20px_rgba(37,99,235,0.4)] active:scale-95 transition-all mt-4"
+                                >
+                                    Publish Gig
+                                </button>
+                            </div>
+                        </div>
+                    </Layout>
+                );
+            };
+
+            // 5. My Tasks View
+            const MyTasksView = () => {
+                const [activeTab, setActiveTab] = useState('posted'); 
+
+                return (
+                    <Layout>
+                        <div className="bg-white min-h-screen">
+                            <div className="p-4 border-b border-gray-100 bg-white sticky top-0 z-10 shadow-sm">
+                                <h1 className="font-extrabold text-xl text-center text-gray-800 tracking-tight">My Tasks</h1>
+                            </div>
+
+                            {/* Tabs */}
+                            <div className="flex bg-gray-50 p-1.5 m-4 rounded-xl border border-gray-200">
+                                <button 
+                                    onClick={() => setActiveTab('posted')}
+                                    className={`flex-1 py-2.5 text-[13px] font-bold text-center rounded-lg transition-all ${activeTab === 'posted' ? 'bg-white text-blue-600 shadow border border-gray-100' : 'text-gray-500 hover:text-gray-700'}`}
+                                >
+                                    Tasks I Posted
+                                </button>
+                                <button 
+                                    onClick={() => setActiveTab('doing')}
+                                    className={`flex-1 py-2.5 text-[13px] font-bold text-center rounded-lg transition-all ${activeTab === 'doing' ? 'bg-white text-blue-600 shadow border border-gray-100' : 'text-gray-500 hover:text-gray-700'}`}
+                                >
+                                    Tasks I'm Doing
+                                </button>
+                            </div>
+
+                            <div className="p-4 space-y-4 pt-0">
+                                {activeTab === 'posted' ? (
+                                    <div className="border border-gray-200 rounded-2xl p-5 shadow-[0_2px_10px_rgb(0,0,0,0.03)] bg-white">
+                                        <div className="flex justify-between items-start">
+                                            <h3 className="font-bold text-gray-800 text-[15px] leading-tight">Need a logo for my SSGuard project</h3>
+                                            <MoreHorizontal size={18} className="text-gray-400 cursor-pointer" />
+                                        </div>
+                                        
+                                        <div className="flex items-center gap-2 mt-4 bg-green-50 p-2.5 rounded-lg border border-green-100">
+                                            <div className="w-7 h-7 bg-green-200 rounded-full flex items-center justify-center text-xs font-bold text-green-800 shadow-sm">Os</div>
+                                            <span className="text-[13px] text-green-800 font-medium">Accepted by <span className="font-bold text-green-900">Osman</span></span>
+                                        </div>
+
+                                        <button className="w-full mt-5 bg-blue-600 text-white font-bold py-3 rounded-xl text-sm shadow hover:bg-blue-700 transition-colors">
+                                            Approve & Transfer Points
+                                        </button>
+                                    </div>
+                                ) : (
+                                    <div className="border border-gray-200 rounded-2xl p-5 shadow-[0_2px_10px_rgb(0,0,0,0.03)] bg-white">
+                                        <div className="flex justify-between items-start">
+                                            <h3 className="font-bold text-gray-800 text-[15px] leading-tight">Need help with Calculus II</h3>
+                                            <MoreHorizontal size={18} className="text-gray-400 cursor-pointer" />
+                                        </div>
+                                        <div className="flex items-center gap-2 mt-2">
+                                            <span className="text-[10px] font-bold text-blue-600 bg-blue-50 px-2 py-1 rounded border border-blue-100 uppercase tracking-wider">In Progress</span>
+                                            <span className="text-xs text-gray-500 font-medium">Due: Tomorrow</span>
+                                        </div>
+                                        
+                                        <div className="mt-5 border-2 border-dashed border-gray-300 rounded-xl p-4 text-center bg-gray-50 cursor-pointer hover:bg-gray-100 transition-colors">
+                                            <span className="text-[13px] font-bold text-gray-500">Provide a file or link here</span>
+                                        </div>
+
+                                        <button className="w-full mt-4 bg-gray-800 text-white font-bold py-3 rounded-xl text-sm shadow hover:bg-gray-900 transition-colors">
+                                            Submit Work
+                                        </button>
+                                    </div>
+                                )}
+                            </div>
+                        </div>
+                    </Layout>
+                );
+            };
+
+            // 6. User Profile & Ledger View
+            const ProfileView = () => {
+                return (
+                    <Layout>
+                        <div className="bg-gray-50 min-h-screen">
+                            {/* Header/Banner */}
+                            <div className="bg-blue-600 pt-6 pb-24 px-4 relative rounded-b-[2.5rem] shadow-md overflow-hidden">
+                                <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500 rounded-full opacity-30 -mr-10 -mt-10"></div>
+                                <div className="flex items-center justify-between text-white relative z-10">
+                                    <button onClick={() => setCurrentView('dashboard')} className="p-1 hover:bg-blue-500 rounded-full transition-colors"><ArrowLeft size={24}/></button>
+                                    <h1 className="font-extrabold text-lg tracking-wide">Profile</h1>
+                                    <button className="p-1 hover:bg-blue-500 rounded-full transition-colors"><MoreHorizontal size={24}/></button>
+                                </div>
+                            </div>
+
+                            {/* Profile Card */}
+                            <div className="px-5 -mt-20 relative z-10">
+                                <div className="bg-white rounded-3xl shadow-xl p-6 flex flex-col items-center text-center border border-gray-100">
+                                    <div className="w-24 h-24 bg-blue-50 rounded-full border-[5px] border-white shadow-md flex items-center justify-center -mt-14 overflow-hidden relative">
+                                        <User size={48} className="text-blue-400 mt-2" />
+                                    </div>
+                                    <h2 className="font-black text-xl text-gray-900 mt-3">{user.name}</h2>
+                                    <p className="text-xs font-bold text-blue-600 bg-blue-50 px-2 py-1 rounded mt-1">{user.department}</p>
+                                    
+                                    <div className="mt-4 text-[11px] font-bold text-gray-400 uppercase tracking-widest">Average rating</div>
+                                    <div className="flex items-center justify-center gap-1 mt-1 bg-gray-50 px-4 py-1.5 rounded-full border border-gray-100">
+                                        <Star size={14} className="text-yellow-400 fill-current drop-shadow-sm" />
+                                        <Star size={14} className="text-yellow-400 fill-current drop-shadow-sm" />
+                                        <Star size={14} className="text-yellow-400 fill-current drop-shadow-sm" />
+                                        <Star size={14} className="text-yellow-400 fill-current drop-shadow-sm" />
+                                        <Star size={14} className="text-yellow-400 fill-current opacity-50 drop-shadow-sm" />
+                                        <span className="text-sm font-black text-gray-800 ml-2">{user.rating}</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className="p-5">
+                                {/* Badges/Achievements */}
+                                <div className="flex items-center justify-between mb-3">
+                                    <h3 className="font-extrabold text-gray-800 text-[15px]">Badges</h3>
+                                    <span className="text-xs font-bold text-blue-600 cursor-pointer">View All</span>
+                                </div>
+                                <div className="flex justify-between gap-3 mb-8 bg-white p-4 rounded-2xl shadow-sm border border-gray-100">
+                                    <div className="flex flex-col items-center w-1/3">
+                                        <div className="w-12 h-12 bg-gradient-to-br from-blue-50 to-blue-100 rounded-full flex items-center justify-center border border-blue-200 shadow-sm">
+                                            <Award size={20} className="text-blue-600" />
+                                        </div>
+                                        <span className="text-[10px] font-extrabold text-gray-700 mt-2 text-center leading-tight">Top<br/>Contributor</span>
+                                    </div>
+                                    <div className="flex flex-col items-center w-1/3">
+                                        <div className="w-12 h-12 bg-gradient-to-br from-red-50 to-red-100 rounded-full flex items-center justify-center border border-red-200 shadow-sm relative">
+                                            <div className="w-5 h-5 bg-red-500 rotate-45 rounded-sm flex items-center justify-center shadow-sm">
+                                                <div className="w-1.5 h-1.5 bg-white rounded-full"></div>
+                                            </div>
+                                        </div>
+                                        <span className="text-[10px] font-extrabold text-gray-700 mt-2 text-center leading-tight">Design<br/>Guru</span>
+                                    </div>
+                                    <div className="flex flex-col items-center w-1/3">
+                                        <div className="w-12 h-12 bg-gradient-to-br from-yellow-50 to-yellow-100 rounded-full flex items-center justify-center border border-yellow-200 shadow-sm">
+                                            <ShieldCheck size={20} className="text-yellow-600" />
+                                        </div>
+                                        <span className="text-[10px] font-extrabold text-gray-700 mt-2 text-center leading-tight">Trusted<br/>Member</span>
+                                    </div>
+                                </div>
+
+                                {/* Transaction Ledger */}
+                                <h3 className="font-extrabold text-gray-800 mb-3 text-[15px]">Transaction Ledger</h3>
+                                <div className="bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden mb-4">
+                                    <div className="flex justify-between p-3 border-b border-gray-100 bg-gray-50 text-[11px] font-black text-gray-500 uppercase tracking-wider">
+                                        <span>History</span>
+                                        <span>Point</span>
+                                    </div>
+                                    <div className="divide-y divide-gray-100">
+                                        {transactions.map(trx => (
+                                            <div key={trx.id} className="flex justify-between p-3.5 text-sm items-center hover:bg-gray-50 transition-colors">
+                                                <span className="text-gray-600 font-medium text-[13px] pr-4">
+                                                    <span className={trx.type === 'add' ? 'text-green-600 font-extrabold bg-green-50 px-1.5 py-0.5 rounded' : 'text-red-500 font-extrabold bg-red-50 px-1.5 py-0.5 rounded'}>
+                                                        {trx.type === 'add' ? `+${trx.point}` : `-${trx.point}`}
+                                                    </span> for {trx.history}
+                                                </span>
+                                                <span className={`font-black text-sm flex-shrink-0 ${trx.type === 'add' ? 'text-green-600' : 'text-red-500'}`}>
+                                                    {trx.type === 'add' ? `+${trx.point}` : `-${trx.point}`}
+                                                </span>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </Layout>
+                );
+            };
+
+            // Main Render Logic
+            switch (currentView) {
+                case 'onboarding': return <OnboardingView />;
+                case 'dashboard': return <DashboardView />;
+                case 'gig-details': return <GigDetailsView />;
+                case 'post-gig': return <PostGigView />;
+                case 'my-tasks': return <MyTasksView />;
+                case 'profile': return <ProfileView />;
+                default: return <OnboardingView />;
+            }
+        }
+
+        // Render the app
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<App />);
+    </script>
 </body>
 </html>
