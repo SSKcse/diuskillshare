@@ -1,0 +1,646 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2685.2">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+  </style>
+</head>
+<body>
+<p class="p1">&lt;!DOCTYPE html&gt;</p>
+<p class="p1">&lt;html lang="bn"&gt;</p>
+<p class="p1">&lt;head&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta charset="UTF-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;title&gt;সনাতন বিদ্যার্থী পরিষদ | ড্যাফোডিল ইন্টারন্যাশনাল ইউনিভার্সিটি&lt;/title&gt;</p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- Google Fonts for Bengali --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"&gt;</p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- Tailwind CSS --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;script src="https://cdn.tailwindcss.com"&gt;&lt;/script&gt;</p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- Font Awesome --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>tailwind.config = {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>theme: {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>extend: {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>colors: {</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>saffron: {</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>50: '#fff7ed',</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>100: '#ffedd5',</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>500: '#f97316',</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>600: '#ea580c',</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>700: '#c2410c',</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>900: '#7c2d12',</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>},</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>fontFamily: {</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>bengali: ['"Hind Siliguri"', 'sans-serif'],</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">                </span>}</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/script&gt;</p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;style&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>body {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-family: 'Hind Siliguri', sans-serif;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.text-shadow {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>text-shadow: 2px 2px 4px rgba(0,0,0,0.6);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>html {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>scroll-behavior: smooth;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>/* Modal Styles */</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.modal {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>transition: opacity 0.25s ease;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>body.modal-active {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>overflow-x: hidden;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>overflow-y: hidden !important;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/style&gt;</p>
+<p class="p1">&lt;/head&gt;</p>
+<p class="p1">&lt;body class="bg-saffron-50 text-gray-800"&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- Navbar --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;nav class="bg-white shadow-md fixed w-full z-50 transition-all duration-300" id="navbar"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="flex justify-between h-20"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="flex items-center"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;a href="#" class="flex items-center space-x-3"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="h-12 w-12 flex items-center justify-center bg-saffron-100 rounded-full overflow-hidden border-2 border-saffron-500"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                             </span>&lt;img src="loho png.PNG" alt="Logo" class="h-full w-full object-cover" onerror="this.style.display='none'; document.getElementById('fallback-icon').style.display='block';"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                             </span>&lt;i id="fallback-icon" class="fas fa-om text-saffron-600 text-2xl hidden"&gt;&lt;/i&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="flex flex-col"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;span class="font-bold text-xl md:text-2xl text-saffron-700 tracking-wide leading-none"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>SVP &lt;span class="text-gray-600"&gt;DIU&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;span class="text-xs text-gray-500 font-medium"&gt;Sanatan Vidyarthi Parishad&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p2"><span class="Apple-converted-space">                </span></p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="hidden md:flex items-center space-x-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;a href="#home" class="text-gray-700 hover:text-saffron-600 font-medium transition duration-300"&gt;হোম&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;a href="#about" class="text-gray-700 hover:text-saffron-600 font-medium transition duration-300"&gt;আমাদের সম্পর্কে&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;a href="#committee" class="text-gray-700 hover:text-saffron-600 font-medium transition duration-300"&gt;কমিটি&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;a href="#events" class="text-gray-700 hover:text-saffron-600 font-medium transition duration-300"&gt;ইভেন্ট&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;a href="#gallery" class="text-gray-700 hover:text-saffron-600 font-medium transition duration-300"&gt;গ্যালারি&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;a href="#donation" class="text-gray-700 hover:text-saffron-600 font-medium transition duration-300"&gt;দান করুন&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;a href="#contact" class="px-5 py-2 bg-saffron-600 text-white rounded-full font-medium hover:bg-saffron-700 transition duration-300 shadow-lg transform hover:-translate-y-0.5"&gt;যোগাযোগ&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="md:hidden flex items-center"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;button id="mobile-menu-btn" class="text-gray-700 hover:text-saffron-600 focus:outline-none"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;i class="fas fa-bars text-2xl"&gt;&lt;/i&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 shadow-lg"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;a href="#home" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-saffron-600 hover:bg-saffron-50"&gt;হোম&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;a href="#about" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-saffron-600 hover:bg-saffron-50"&gt;আমাদের সম্পর্কে&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;a href="#committee" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-saffron-600 hover:bg-saffron-50"&gt;কমিটি&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;a href="#events" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-saffron-600 hover:bg-saffron-50"&gt;ইভেন্ট&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;a href="#gallery" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-saffron-600 hover:bg-saffron-50"&gt;গ্যালারি&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;a href="#donation" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-saffron-600 hover:bg-saffron-50"&gt;দান করুন&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;a href="#contact" class="block px-3 py-2 rounded-md text-base font-medium text-saffron-600 font-bold hover:bg-saffron-50"&gt;যোগাযোগ করুন&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/nav&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- Hero Section --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;section id="home" class="relative h-screen flex items-center justify-center overflow-hidden"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="absolute inset-0 z-0"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;img src="https://images.unsplash.com/photo-1605658661601-5290b23023fb?q=80&amp;w=2070&amp;auto=format&amp;fit=crop" alt="Background" class="w-full h-full object-cover"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="absolute inset-0 bg-gradient-to-b from-black/70 to-black/40"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="relative z-10 text-center px-4 max-w-4xl mx-auto mt-16"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="mb-4 inline-block animate-bounce"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;i class="fas fa-om text-5xl text-saffron-500"&gt;&lt;/i&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;h1 class="text-4xl md:text-6xl font-bold text-white mb-4 text-shadow leading-tight"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>সনাতন বিদ্যার্থী পরিষদ</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/h1&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;h2 class="text-xl md:text-3xl text-saffron-100 font-medium mb-8 text-shadow"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>ড্যাফোডিল ইন্টারন্যাশনাল ইউনিভার্সিটি</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="text-gray-200 text-lg md:text-xl mb-10 max-w-2xl mx-auto"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>সত্য, সুন্দর ও পবিত্রতার সন্ধানে আমরা একতাবদ্ধ। ক্যাম্পাসে ধর্মীয় সংস্কৃতি চর্চা ও ভ্রাতৃত্ববোধ বজায় রাখতে আমরা অঙ্গীকারবদ্ধ।</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="flex flex-col sm:flex-row justify-center gap-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;!-- Google Form Link --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;a href="https://docs.google.com/forms" target="_blank" class="px-8 py-3 bg-saffron-600 hover:bg-saffron-700 text-white font-bold rounded-full transition duration-300 shadow-lg text-lg transform hover:scale-105 flex items-center justify-center gap-2"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;i class="fas fa-user-plus"&gt;&lt;/i&gt; যুক্ত হোন</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;a href="#events" class="px-8 py-3 bg-white/10 hover:bg-white/20 backdrop-blur-sm border-2 border-white text-white font-bold rounded-full transition duration-300 text-lg"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>কার্যক্রম দেখুন</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="absolute bottom-0 left-0 right-0"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" class="text-saffron-50 fill-current"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;path fill-opacity="1" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,112C672,96,768,96,864,112C960,128,1056,160,1152,160C1248,160,1344,128,1392,112L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"&gt;&lt;/path&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/svg&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- About Section --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;section id="about" class="py-20 px-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="max-w-6xl mx-auto"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="text-center mb-16"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;h2 class="text-3xl md:text-4xl font-bold text-saffron-900 mb-3"&gt;আমাদের সম্পর্কে&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="w-24 h-1 bg-saffron-500 mx-auto rounded-full"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="grid md:grid-cols-2 gap-12 items-center"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="space-y-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;p class="text-lg text-gray-700 leading-relaxed text-justify"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="font-bold text-saffron-600 text-xl"&gt;সনাতন বিদ্যার্থী পরিষদ&lt;/span&gt;, ড্যাফোডিল ইন্টারন্যাশনাল ইউনিভার্সিটি-এর সনাতন ধর্মাবলম্বী শিক্ষার্থীদের একটি ঐক্যবদ্ধ পরিবার।</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;p class="text-lg text-gray-700 leading-relaxed text-justify"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>আমরা বিশ্বাস করি "জীবের সেবা মানেই ঈশ্বরের সেবা"। তাই ধর্মীয় আচার-অনুষ্ঠানের পাশাপাশি আমরা বিভিন্ন সামাজিক ও মানবিক কার্যক্রমেও অংশগ্রহণ করে থাকি।</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="bg-white p-4 rounded-xl shadow-md border-b-4 border-saffron-500 text-center hover:-translate-y-2 transition duration-300"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;i class="fas fa-users text-3xl text-saffron-500 mb-2"&gt;&lt;/i&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;h3 class="font-bold text-gray-800"&gt;ঐক্য&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="bg-white p-4 rounded-xl shadow-md border-b-4 border-saffron-500 text-center hover:-translate-y-2 transition duration-300"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;i class="fas fa-dharmachakra text-3xl text-saffron-500 mb-2"&gt;&lt;/i&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;h3 class="font-bold text-gray-800"&gt;সংস্কৃতি&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="bg-white p-4 rounded-xl shadow-md border-b-4 border-saffron-500 text-center hover:-translate-y-2 transition duration-300"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;i class="fas fa-hands-helping text-3xl text-saffron-500 mb-2"&gt;&lt;/i&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;h3 class="font-bold text-gray-800"&gt;সেবা&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="relative"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="absolute inset-0 bg-saffron-500 rounded-2xl transform rotate-3 opacity-20"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;img src="https://images.unsplash.com/photo-1622324978712-4c253db5c010?q=80&amp;w=2070&amp;auto=format&amp;fit=crop" alt="Students Group" class="relative rounded-2xl shadow-xl w-full h-80 object-cover transform -rotate-2 hover:rotate-0 transition duration-500"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- Committee Section --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;section id="committee" class="py-20 bg-white"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="max-w-7xl mx-auto px-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="text-center mb-16"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;span class="text-saffron-600 font-bold tracking-wider uppercase text-sm"&gt;নেতৃত্ব&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;h2 class="text-3xl md:text-4xl font-bold text-gray-900 mt-2 mb-3"&gt;সংগঠন কাঠামো&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="w-24 h-1 bg-saffron-500 mx-auto rounded-full"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;!-- 1. Advisors Section --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="mb-16"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;h3 class="text-2xl font-bold text-center text-gray-800 mb-8 border-b inline-block mx-auto pb-2 border-saffron-300"&gt;উপদেষ্টা মণ্ডলী&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-8 justify-center"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;!-- Advisor 1 --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="bg-white p-6 rounded-xl shadow-lg border-t-4 border-saffron-600 text-center"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="w-24 h-24 mx-auto bg-gray-200 rounded-full mb-4 overflow-hidden"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                             </span>&lt;!-- ছবি না থাকলে ডিফল্ট আইকন --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                             </span>&lt;i class="fas fa-user text-4xl text-gray-400 mt-6"&gt;&lt;/i&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                             </span>&lt;!-- &lt;img src="advisor1.jpg" class="w-full h-full object-cover"&gt; --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;h4 class="font-bold text-lg"&gt;শিক্ষক/উপদেষ্টার নাম&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="text-sm text-gray-600"&gt;পদবী (যেমন: লেকচারার)&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="text-xs text-gray-500 mt-1"&gt;বিভাগ, DIU&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;!-- Advisor 2 --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="bg-white p-6 rounded-xl shadow-lg border-t-4 border-saffron-600 text-center"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="w-24 h-24 mx-auto bg-gray-200 rounded-full mb-4 overflow-hidden"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                             </span>&lt;i class="fas fa-user text-4xl text-gray-400 mt-6"&gt;&lt;/i&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;h4 class="font-bold text-lg"&gt;শিক্ষক/উপদেষ্টার নাম&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="text-sm text-gray-600"&gt;পদবী&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="text-xs text-gray-500 mt-1"&gt;বিভাগ, DIU&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                     </span>&lt;!-- Advisor 3 --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                     </span>&lt;div class="bg-white p-6 rounded-xl shadow-lg border-t-4 border-saffron-600 text-center"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="w-24 h-24 mx-auto bg-gray-200 rounded-full mb-4 overflow-hidden"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                             </span>&lt;i class="fas fa-user text-4xl text-gray-400 mt-6"&gt;&lt;/i&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;h4 class="font-bold text-lg"&gt;শিক্ষক/উপদেষ্টার নাম&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="text-sm text-gray-600"&gt;পদবী&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="text-xs text-gray-500 mt-1"&gt;বিভাগ, DIU&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;!-- 2. Convenor Committee --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="mb-16"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;h3 class="text-2xl font-bold text-center text-gray-800 mb-8 border-b inline-block mx-auto pb-2 border-saffron-300"&gt;আহ্বায়ক কমিটি&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-2xl mx-auto"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;!-- Convenor --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="bg-saffron-50 rounded-lg p-6 text-center shadow hover:shadow-md transition"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                         </span>&lt;div class="w-20 h-20 mx-auto bg-gray-300 rounded-full mb-3 overflow-hidden"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;i class="fas fa-user text-3xl text-gray-500 mt-5"&gt;&lt;/i&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;h4 class="font-bold text-lg"&gt;নাম (আহ্বায়ক)&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="text-saffron-700 font-medium"&gt;আহ্বায়ক&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="text-xs text-gray-500"&gt;আইডি/ব্যাচ&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;!-- Joint Convenor --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="bg-saffron-50 rounded-lg p-6 text-center shadow hover:shadow-md transition"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="w-20 h-20 mx-auto bg-gray-300 rounded-full mb-3 overflow-hidden"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;i class="fas fa-user text-3xl text-gray-500 mt-5"&gt;&lt;/i&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;h4 class="font-bold text-lg"&gt;নাম (যুগ্ম-আহ্বায়ক)&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="text-saffron-700 font-medium"&gt;যুগ্ম-আহ্বায়ক&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="text-xs text-gray-500"&gt;আইডি/ব্যাচ&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;!-- 3. Executive Committee Grid --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;h3 class="text-2xl font-bold text-center text-gray-800 mb-8 border-b inline-block mx-auto pb-2 border-saffron-300"&gt;কার্যনির্বাহী কমিটি&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;!-- President --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="bg-white rounded-2xl overflow-hidden shadow-lg group hover:shadow-2xl transition duration-300 border border-gray-100"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="relative overflow-hidden h-64 bg-gray-200"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;!-- এখানে আসল ছবি দিন --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;img src="https://via.placeholder.com/300x400?text=President" alt="President" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="p-6 text-center"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;h3 class="text-xl font-bold text-gray-900 mb-1"&gt;সুব্রত দাস&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="text-saffron-600 font-semibold mb-2"&gt;সভাপতি&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="text-gray-500 text-sm"&gt;সিএসই বিভাগ&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;!-- GS --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="bg-white rounded-2xl overflow-hidden shadow-lg group hover:shadow-2xl transition duration-300 border border-gray-100"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="relative overflow-hidden h-64 bg-gray-200"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;img src="https://via.placeholder.com/300x400?text=Secretary" alt="GS" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="p-6 text-center"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;h3 class="text-xl font-bold text-gray-900 mb-1"&gt;অনিক রায়&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="text-saffron-600 font-semibold mb-2"&gt;সাধারণ সম্পাদক&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="text-gray-500 text-sm"&gt;ইইই বিভাগ&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;!-- Organizing --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="bg-white rounded-2xl overflow-hidden shadow-lg group hover:shadow-2xl transition duration-300 border border-gray-100"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="relative overflow-hidden h-64 bg-gray-200"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;img src="https://via.placeholder.com/300x400?text=Org+Sec" alt="Org Sec" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="p-6 text-center"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;h3 class="text-xl font-bold text-gray-900 mb-1"&gt;জয়ন্ত কুমার&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="text-saffron-600 font-semibold mb-2"&gt;সাংগঠনিক সম্পাদক&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="text-gray-500 text-sm"&gt;সফটওয়্যার ইঞ্জিনিয়ারিং&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;!-- Finance --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="bg-white rounded-2xl overflow-hidden shadow-lg group hover:shadow-2xl transition duration-300 border border-gray-100"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="relative overflow-hidden h-64 bg-gray-200"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;img src="https://via.placeholder.com/300x400?text=Finance" alt="Finance" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="p-6 text-center"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;h3 class="text-xl font-bold text-gray-900 mb-1"&gt;পূজা রানী&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="text-saffron-600 font-semibold mb-2"&gt;অর্থ সম্পাদক&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="text-gray-500 text-sm"&gt;ফার্মেসি বিভাগ&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="text-center mt-12"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;!-- Modal Trigger --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;button onclick="toggleModal('committee-modal')" class="px-8 py-3 border-2 border-saffron-500 text-saffron-600 font-bold rounded-full hover:bg-saffron-500 hover:text-white transition duration-300"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>সম্পূর্ণ কমিটি দেখুন</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- Events Section --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;section id="events" class="py-20 px-4 bg-gray-50"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="max-w-6xl mx-auto"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="text-center mb-16"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-3"&gt;পূর্ববর্তী ইভেন্টসমূহ&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="w-24 h-1 bg-saffron-500 mx-auto rounded-full"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="space-y-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;!-- Event 1 --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition duration-300 flex flex-col md:flex-row"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="md:w-1/3"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;img src="https://images.unsplash.com/photo-1548691929-197e4125b28d?q=80&amp;w=2070&amp;auto=format&amp;fit=crop" alt="Saraswati Puja" class="w-full h-full object-cover min-h-[250px]"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="p-8 md:w-2/3 flex flex-col justify-center"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="flex items-center text-sm text-gray-500 mb-2"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;i class="far fa-calendar-alt mr-2 text-saffron-500"&gt;&lt;/i&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;span&gt;১০ মাঘ, ১৪৩১ (২০২৫)&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;h3 class="text-2xl font-bold text-gray-800 mb-3"&gt;সরস্বতী পূজা ২০২৫&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="text-gray-600 mb-4 line-clamp-3"&gt;বিশ্ববিদ্যালয় ক্যাম্পাসে আড়ম্বরপূর্ণভাবে বাণী অর্চনা উদযাপন। সকাল থেকে পূজা, অঞ্জলি প্রদান এবং দুপুরে মহাপ্রসাদ বিতরণের আয়োজন করা হয়। সকল ধর্ম, বর্ণের শিক্ষার্থীদের মিলনমেলায় পরিণত হয় ক্যাম্পাস।&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;button onclick="openEventModal('event1')" class="text-saffron-600 font-semibold hover:underline text-left"&gt;বিস্তারিত দেখুন &lt;i class="fas fa-arrow-right ml-1"&gt;&lt;/i&gt;&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;!-- Event 2 --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition duration-300 flex flex-col md:flex-row"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="md:w-1/3 md:order-last"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;img src="https://images.unsplash.com/photo-1618218178738-4e08c2a30b76?q=80&amp;w=2070&amp;auto=format&amp;fit=crop" alt="Janmashtami" class="w-full h-full object-cover min-h-[250px]"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="p-8 md:w-2/3 flex flex-col justify-center"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="flex items-center text-sm text-gray-500 mb-2"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;i class="far fa-calendar-alt mr-2 text-saffron-500"&gt;&lt;/i&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;span&gt;ভাদ্র, ১৪৩১&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;h3 class="text-2xl font-bold text-gray-800 mb-3"&gt;শুভ জন্মাষ্টমী শোভাযাত্রা&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="text-gray-600 mb-4 line-clamp-3"&gt;ভগবান শ্রী কৃষ্ণের জন্মতিথি উপলক্ষে ক্যাম্পাসে বর্ণাঢ্য শোভাযাত্রা ও আলোচনা সভার আয়োজন। সনাতন ধর্মের শিক্ষা ও শ্রী কৃষ্ণের আদর্শ নিয়ে আলোচনা করা হয়।&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;button onclick="openEventModal('event2')" class="text-saffron-600 font-semibold hover:underline text-left"&gt;বিস্তারিত দেখুন &lt;i class="fas fa-arrow-right ml-1"&gt;&lt;/i&gt;&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- Gallery Section (Restored to Masonry Style) --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;section id="gallery" class="py-20 px-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="max-w-7xl mx-auto"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="text-center mb-16"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-3"&gt;স্মৃতিময় মুহূর্ত&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="w-24 h-1 bg-saffron-500 mx-auto rounded-full"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;p class="mt-4 text-gray-600"&gt;আমাদের আয়োজনের কিছু খণ্ডচিত্র&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="grid grid-cols-2 md:grid-cols-4 gap-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="grid gap-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;img class="h-auto max-w-full rounded-lg hover:opacity-90 transition cursor-pointer" src="https://images.unsplash.com/photo-1598404222036-74971261d563?q=80&amp;w=1935&amp;auto=format&amp;fit=crop" alt=""&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;img class="h-auto max-w-full rounded-lg hover:opacity-90 transition cursor-pointer" src="https://images.unsplash.com/photo-1574347895393-2c1b960b70c3?q=80&amp;w=2070&amp;auto=format&amp;fit=crop" alt=""&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="grid gap-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;img class="h-auto max-w-full rounded-lg hover:opacity-90 transition cursor-pointer" src="https://images.unsplash.com/photo-1561578311-b75373307221?q=80&amp;w=2070&amp;auto=format&amp;fit=crop" alt=""&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;img class="h-auto max-w-full rounded-lg hover:opacity-90 transition cursor-pointer" src="https://images.unsplash.com/photo-1606216794074-735e91aa2c92?q=80&amp;w=1887&amp;auto=format&amp;fit=crop" alt=""&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="grid gap-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;img class="h-auto max-w-full rounded-lg hover:opacity-90 transition cursor-pointer" src="https://images.unsplash.com/photo-1524069290636-e575883d5f1c?q=80&amp;w=1887&amp;auto=format&amp;fit=crop" alt=""&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;img class="h-auto max-w-full rounded-lg hover:opacity-90 transition cursor-pointer" src="https://images.unsplash.com/photo-1517457373958-b7bdd4587205?q=80&amp;w=2069&amp;auto=format&amp;fit=crop" alt=""&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="grid gap-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;img class="h-auto max-w-full rounded-lg hover:opacity-90 transition cursor-pointer" src="https://images.unsplash.com/photo-1596263576925-50e501d51159?q=80&amp;w=1887&amp;auto=format&amp;fit=crop" alt=""&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;img class="h-auto max-w-full rounded-lg hover:opacity-90 transition cursor-pointer" src="https://images.unsplash.com/photo-1623869915939-f4705030222d?q=80&amp;w=1887&amp;auto=format&amp;fit=crop" alt=""&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- Join CTA (Restored) --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;section class="py-16 bg-saffron-600 text-white"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="max-w-4xl mx-auto px-4 text-center"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;h2 class="text-3xl font-bold mb-4"&gt;আমাদের পরিবারের অংশ হোন&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="text-xl mb-8 opacity-90"&gt;আপনি যদি ড্যাফোডিল ইন্টারন্যাশনাল ইউনিভার্সিটির সনাতন ধর্মাবলম্বী শিক্ষার্থী হয়ে থাকেন, তবে আজই আমাদের সাথে যুক্ত হোন।&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;a href="https://docs.google.com/forms" target="_blank" class="inline-block bg-white text-saffron-600 font-bold py-3 px-8 rounded-full shadow-lg hover:bg-gray-100 transition duration-300 transform hover:scale-105"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>রেজিস্ট্রেশন করুন</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- Donation Section (Moved Here) --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;section id="donation" class="py-20 bg-saffron-900 text-white relative overflow-hidden"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;!-- Decoration --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="absolute top-0 right-0 -mr-20 -mt-20 w-64 h-64 rounded-full bg-saffron-800 opacity-50"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="absolute bottom-0 left-0 -ml-20 -mb-20 w-80 h-80 rounded-full bg-saffron-800 opacity-50"&gt;&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="max-w-4xl mx-auto px-4 text-center relative z-10"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;h2 class="text-3xl md:text-4xl font-bold mb-6"&gt;আমাদের পাশে দাঁড়ান&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="text-lg text-saffron-100 mb-10 max-w-2xl mx-auto"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>আমাদের বিভিন্ন ধর্মীয় উৎসব ও সামাজিক কার্যক্রম সফল করতে আপনাদের সহযোগিতা একান্ত কাম্য। আপনার সামান্য অনুদান আমাদের বড় কোনো ভালো কাজে সহায়তা করতে পারে।</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/p&gt;</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="grid md:grid-cols-2 gap-6 max-w-2xl mx-auto mb-10"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="bg-white text-gray-800 p-6 rounded-xl shadow-lg transform hover:scale-105 transition"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="flex items-center justify-center mb-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;img src="https://freelogopng.com/images/all_img/1656234745bkash-app-logo-png.png" alt="Bkash" class="h-10"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;h3 class="text-xl font-bold mb-1"&gt;বিকাশ (পার্সোনাল)&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;p class="text-2xl font-mono font-bold text-saffron-600 copy-text cursor-pointer" onclick="copyToClipboard('01xxxxxxxxx')"&gt;01xxxxxxxxx&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;p class="text-xs text-gray-500 mt-2"&gt;(নাম্বারটি কপি করতে ক্লিক করুন)&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="bg-white text-gray-800 p-6 rounded-xl shadow-lg transform hover:scale-105 transition"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="flex items-center justify-center mb-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;img src="https://freelogopng.com/images/all_img/1679248787Nagad-Logo.png" alt="Nagad" class="h-10"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;h3 class="text-xl font-bold mb-1"&gt;নগদ (পার্সোনাল)&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;p class="text-2xl font-mono font-bold text-orange-600 copy-text cursor-pointer" onclick="copyToClipboard('01xxxxxxxxx')"&gt;01xxxxxxxxx&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;p class="text-xs text-gray-500 mt-2"&gt;(নাম্বারটি কপি করতে ক্লিক করুন)&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="text-sm opacity-80"&gt;ডোনেশন পাঠানোর পর দয়া করে আমাদের ফেইসবুক পেজে অথবা নাম্বারে মেসেজ দিয়ে নিশ্চিত করবেন।&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- Footer --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;footer id="contact" class="bg-gray-900 text-gray-300 pt-16 pb-8 border-t border-gray-800"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-12 mb-12"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;!-- About --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="flex items-center space-x-3 mb-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;i class="fas fa-om text-saffron-500 text-3xl"&gt;&lt;/i&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;span class="text-2xl font-bold text-white"&gt;SVP DIU&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;p class="text-gray-400 leading-relaxed mb-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>সনাতন বিদ্যার্থী পরিষদ, ড্যাফোডিল ইন্টারন্যাশনাল ইউনিভার্সিটির সনাতন শিক্ষার্থীদের একটি অরাজনৈতিক ও সামাজিক সংগঠন।</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="flex space-x-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;a href="https://www.facebook.com/svpdiu/" target="_blank" class="h-10 w-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-saffron-500 hover:text-white transition duration-300"&gt;&lt;i class="fab fa-facebook-f"&gt;&lt;/i&gt;&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;a href="#" class="h-10 w-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-saffron-500 hover:text-white transition duration-300"&gt;&lt;i class="fab fa-instagram"&gt;&lt;/i&gt;&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;a href="#" class="h-10 w-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-saffron-500 hover:text-white transition duration-300"&gt;&lt;i class="fab fa-youtube"&gt;&lt;/i&gt;&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;!-- Quick Links --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;h3 class="text-white text-xl font-bold mb-6 border-l-4 border-saffron-500 pl-3"&gt;গুরুত্বপূর্ণ লিংক&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;ul class="space-y-3"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;li&gt;&lt;a href="#about" class="hover:text-saffron-500 transition"&gt;&lt;i class="fas fa-chevron-right text-xs mr-2"&gt;&lt;/i&gt;আমাদের সম্পর্কে&lt;/a&gt;&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;li&gt;&lt;a href="#committee" class="hover:text-saffron-500 transition"&gt;&lt;i class="fas fa-chevron-right text-xs mr-2"&gt;&lt;/i&gt;কার্যনির্বাহী কমিটি&lt;/a&gt;&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;li&gt;&lt;a href="#events" class="hover:text-saffron-500 transition"&gt;&lt;i class="fas fa-chevron-right text-xs mr-2"&gt;&lt;/i&gt;ইভেন্ট গ্যালারি&lt;/a&gt;&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;li&gt;&lt;a href="#donation" class="hover:text-saffron-500 transition"&gt;&lt;i class="fas fa-chevron-right text-xs mr-2"&gt;&lt;/i&gt;দান করুন&lt;/a&gt;&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/ul&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;!-- Contact --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;h3 class="text-white text-xl font-bold mb-6 border-l-4 border-saffron-500 pl-3"&gt;যোগাযোগ&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;ul class="space-y-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;li class="flex items-start"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;i class="fas fa-map-marker-alt mt-1.5 mr-3 text-saffron-500"&gt;&lt;/i&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span&gt;ড্যাফোডিল স্মার্ট সিটি, আশুলিয়া, সাভার, ঢাকা।&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;li class="flex items-center"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;i class="fas fa-envelope mr-3 text-saffron-500"&gt;&lt;/i&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span&gt;svp.diu@gmail.com&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;li class="flex items-center"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;i class="fas fa-phone-alt mr-3 text-saffron-500"&gt;&lt;/i&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span&gt;+880 1xxxxxxxxx&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/ul&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="border-t border-gray-800 pt-8 mt-8 text-center"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p&gt;&amp;copy; ২০২৬ সনাতন বিদ্যার্থী পরিষদ, DIU | কারিগরি সহযোগিতায় &lt;span class="text-saffron-500"&gt;SVP IT Team&lt;/span&gt;&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/footer&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- MODAL IMPLEMENTATION --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- 1. Committee Modal --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div id="committee-modal" class="modal opacity-0 pointer-events-none fixed w-full h-full top-0 left-0 flex items-center justify-center z-[100]"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="modal-overlay absolute w-full h-full bg-gray-900 opacity-50"&gt;&lt;/div&gt;</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="modal-container bg-white w-11/12 md:max-w-3xl mx-auto rounded shadow-lg z-50 overflow-y-auto max-h-[90vh]"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="modal-content py-4 text-left px-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;!-- Title --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="flex justify-between items-center pb-3 border-b"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;p class="text-2xl font-bold text-saffron-700"&gt;সম্পূর্ণ কার্যনির্বাহী কমিটি&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="modal-close cursor-pointer z-50" onclick="toggleModal('committee-modal')"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;i class="fas fa-times text-gray-500 hover:text-red-500"&gt;&lt;/i&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;!-- Body: Full Committee List --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="my-5"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;p class="mb-4 text-gray-600 italic"&gt;এখানে কমিটির সকল সদস্যের নাম থাকবে। (আপনি টেক্সট এডিটর দিয়ে এই সেকশনে আরও নাম যুক্ত করতে পারবেন)&lt;/p&gt;</p>
+<p class="p2"><span class="Apple-converted-space">                    </span></p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="grid grid-cols-1 md:grid-cols-2 gap-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;!-- Example Items --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="p-3 border rounded hover:bg-gray-50"&gt;&lt;span class="font-bold"&gt;নাম:&lt;/span&gt; সদস্য ১ &lt;br&gt; &lt;span class="text-sm text-gray-500"&gt;পদবী: সহ-সভাপতি&lt;/span&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="p-3 border rounded hover:bg-gray-50"&gt;&lt;span class="font-bold"&gt;নাম:&lt;/span&gt; সদস্য ২ &lt;br&gt; &lt;span class="text-sm text-gray-500"&gt;পদবী: যুগ্ম সাধারণ সম্পাদক&lt;/span&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="p-3 border rounded hover:bg-gray-50"&gt;&lt;span class="font-bold"&gt;নাম:&lt;/span&gt; সদস্য ৩ &lt;br&gt; &lt;span class="text-sm text-gray-500"&gt;পদবী: সাংস্কৃতিক সম্পাদক&lt;/span&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="p-3 border rounded hover:bg-gray-50"&gt;&lt;span class="font-bold"&gt;নাম:&lt;/span&gt; সদস্য ৪ &lt;br&gt; &lt;span class="text-sm text-gray-500"&gt;পদবী: দপ্তর সম্পাদক&lt;/span&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="p-3 border rounded hover:bg-gray-50"&gt;&lt;span class="font-bold"&gt;নাম:&lt;/span&gt; সদস্য ৫ &lt;br&gt; &lt;span class="text-sm text-gray-500"&gt;পদবী: প্রচার সম্পাদক&lt;/span&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;!-- Add more rows here --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;!-- Footer --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="flex justify-end pt-2"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;button class="px-4 py-2 bg-saffron-600 text-white text-base font-medium rounded-md shadow-sm hover:bg-saffron-700 focus:outline-none focus:ring-2 focus:ring-saffron-300" onclick="toggleModal('committee-modal')"&gt;বন্ধ করুন&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- 2. Event Details Modal --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div id="event-modal" class="modal opacity-0 pointer-events-none fixed w-full h-full top-0 left-0 flex items-center justify-center z-[100]"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="modal-overlay absolute w-full h-full bg-gray-900 opacity-50"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="modal-container bg-white w-11/12 md:max-w-2xl mx-auto rounded shadow-lg z-50 overflow-y-auto max-h-[90vh]"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="modal-content py-4 text-left px-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="flex justify-between items-center pb-3 border-b"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;p class="text-2xl font-bold text-gray-800" id="modal-event-title"&gt;ইভেন্টের নাম&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="modal-close cursor-pointer z-50" onclick="toggleModal('event-modal')"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;i class="fas fa-times text-gray-500 hover:text-red-500"&gt;&lt;/i&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="my-5"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;img id="modal-event-img" src="" class="w-full h-64 object-cover rounded-lg mb-4 hidden"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;p id="modal-event-desc" class="text-gray-600 leading-relaxed"&gt;বিস্তারিত বর্ণনা...&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="flex justify-end pt-2"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;button class="px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-700" onclick="toggleModal('event-modal')"&gt;বন্ধ করুন&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- JavaScript --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>// Mobile Menu</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const btn = document.getElementById('mobile-menu-btn');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const menu = document.getElementById('mobile-menu');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>btn.addEventListener('click', () =&gt; { menu.classList.toggle('hidden'); });</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>// Modal Logic</p>
+<p class="p1"><span class="Apple-converted-space">        </span>function toggleModal(modalID) {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const modal = document.getElementById(modalID);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>modal.classList.toggle('opacity-0');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>modal.classList.toggle('pointer-events-none');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.body.classList.toggle('modal-active');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>// Close modal when clicking outside</p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.querySelectorAll('.modal-overlay').forEach(overlay =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>overlay.addEventListener('click', function() {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>this.parentElement.classList.add('opacity-0');</p>
+<p class="p1"><span class="Apple-converted-space">                </span>this.parentElement.classList.add('pointer-events-none');</p>
+<p class="p1"><span class="Apple-converted-space">                </span>document.body.classList.remove('modal-active');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>});</p>
+<p class="p1"><span class="Apple-converted-space">        </span>});</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>// Dynamic Event Modal Data</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const eventData = {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>'event1': {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>title: 'সরস্বতী পূজা ২০২৫',</p>
+<p class="p1"><span class="Apple-converted-space">                </span>desc: '১০ মাঘ ১৪৩১ বঙ্গাব্দে ড্যাফোডিল ইন্টারন্যাশনাল ইউনিভার্সিটির ক্যাম্পাসে সরস্বতী পূজা উদযাপিত হয়েছে। সকাল ৯টায় পূজা আরম্ভ, ১০:৩০ এ পুষ্পাঞ্জলি এবং দুপুর ১টায় মহাপ্রসাদ বিতরণের আয়োজন করা হয়। বিশ্ববিদ্যালয়ের সকল বিভাগের শিক্ষক-শিক্ষিকা এবং ছাত্রছাত্রীদের স্বতঃস্ফূর্ত অংশগ্রহণে অনুষ্ঠানটি সাফল্যমণ্ডিত হয়। সন্ধ্যায় ছিল আরতি এবং সাংস্কৃতিক অনুষ্ঠান।',</p>
+<p class="p1"><span class="Apple-converted-space">                </span>img: 'https://images.unsplash.com/photo-1548691929-197e4125b28d?q=80&amp;w=2070&amp;auto=format&amp;fit=crop'</p>
+<p class="p1"><span class="Apple-converted-space">            </span>},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>'event2': {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>title: 'শুভ জন্মাষ্টমী শোভাযাত্রা',</p>
+<p class="p1"><span class="Apple-converted-space">                </span>desc: 'ভগবান শ্রী কৃষ্ণের শুভ জন্মদিন উপলক্ষে ক্যাম্পাসে বর্ণাঢ্য র‍্যালি বের করা হয়। র‍্যালিটি পুরো ক্যাম্পাস প্রদক্ষিণ করে একাডেমিক বিল্ডিং-এর সামনে এসে শেষ হয়। এরপর সংক্ষিপ্ত আলোচনা সভায় শ্রীমদ্ভগবদ্গীতার গুরুত্ব নিয়ে আলোচনা করেন আমাদের শ্রদ্ধেয় শিক্ষকমণ্ডলী।',</p>
+<p class="p1"><span class="Apple-converted-space">                </span>img: 'https://images.unsplash.com/photo-1618218178738-4e08c2a30b76?q=80&amp;w=2070&amp;auto=format&amp;fit=crop'</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>};</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>function openEventModal(eventId) {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const data = eventData[eventId];</p>
+<p class="p1"><span class="Apple-converted-space">            </span>if(data) {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>document.getElementById('modal-event-title').innerText = data.title;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>document.getElementById('modal-event-desc').innerText = data.desc;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>const img = document.getElementById('modal-event-img');</p>
+<p class="p1"><span class="Apple-converted-space">                </span>img.src = data.img;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>img.classList.remove('hidden');</p>
+<p class="p1"><span class="Apple-converted-space">                </span>toggleModal('event-modal');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>// Copy to Clipboard</p>
+<p class="p1"><span class="Apple-converted-space">        </span>function copyToClipboard(text) {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>navigator.clipboard.writeText(text).then(() =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>alert("নাম্বারটি কপি হয়েছে: " + text);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>});</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/script&gt;</p>
+<p class="p1">&lt;/body&gt;</p>
+<p class="p1">&lt;/html&gt;</p>
+</body>
+</html>
